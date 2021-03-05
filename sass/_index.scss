@@ -1,0 +1,21 @@
+.header{
+    &__nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    &__logo{
+        height: 50px;
+    }
+    &__links{
+        display: flex;
+        margin-left: 50px;
+        
+    }
+    &__navlink{
+        margin-right: 10px;
+        font-size: 17px;
+        color: #901C1C;
+    }
+}
+
