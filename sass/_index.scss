@@ -2,20 +2,45 @@
     &__nav{
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: flex-start;
     }
     &__logo{
-        height: 50px;
+        height: 39px;
     }
     &__links{
         display: flex;
-        margin-left: 50px;
+        align-items: center;
+        margin-left: 300px;
+        height: 49px;
+        width: 553px;
         
     }
     &__navlink{
-        margin-right: 10px;
-        font-size: 17px;
+        margin-right: 20px;
+        font-size: 12px;
+        font-weight: 500;
         color: #901C1C;
     }
 }
-
+#scroll__div{
+    position: fixed;
+    display: block;
+    top: -50px;
+    left: 50%;
+    right: 50%;
+    transition: top 0.3s;
+    
+}
+#scroll__topbtn {
+    display: block;
+    float:inline-end;
+    border: none;
+    outline: none;
+    background-color: #DB8876;
+    cursor: pointer;
+    height: 30px;
+    width: 182px;
+    border-radius: 5px;
+    font-size: 18px;
+  }

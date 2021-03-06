@@ -20,25 +20,57 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
 
 .header__logo {
-  height: 50px;
+  height: 39px;
 }
 
 .header__links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 300px;
+  height: 49px;
+  width: 553px;
 }
 
 .header__navlink {
-  margin-right: 10px;
-  font-size: 17px;
+  margin-right: 20px;
+  font-size: 12px;
+  font-weight: 500;
   color: #901C1C;
+}
+
+#scroll__div {
+  position: fixed;
+  display: block;
+  top: -50px;
+  left: 50%;
+  right: 50%;
+  -webkit-transition: top 0.3s;
+  transition: top 0.3s;
+}
+
+#scroll__topbtn {
+  display: block;
+  float: inline-end;
+  border: none;
+  outline: none;
+  background-color: #DB8876;
+  cursor: pointer;
+  height: 30px;
+  width: 182px;
+  border-radius: 5px;
+  font-size: 18px;
 }
 /*# sourceMappingURL=import.css.map */

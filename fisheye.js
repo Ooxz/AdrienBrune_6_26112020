@@ -15,7 +15,7 @@
         this.dataError = true;
     })*/
  
-    var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+    /*var requestURL = 'https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json';
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'json';
@@ -47,10 +47,10 @@
           myPara2.textContent = 'country: ' + photographers[i].country;
           myPara3.textContent = 'Superpowers:';
       
-          var superPowers = photographers[i].powers;
-          for (var j = 0; j < superPowers.length; j++) {
+          var superPhoto = photographers[i].powers;
+          for (var j = 0; j < superPhoto.length; j++) {
             var listItem = document.createElement('li');
-            listItem.textContent = superPowers[j];
+            listItem.textContent = superPhoto[j];
             myList.appendChild(listItem);
           }
       
@@ -62,4 +62,45 @@
       
           section.appendChild(myArticle);
         }
-      }
+      }*/
+
+      fetch('photographers.json')
+      .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        appendData(data);
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+  function appendData(data) {
+    var mainContainer = document.getElementById("myData");
+    for (var i = 0; i < data.length; i++) {
+        var div = document.createElement("div");
+        div.innerHTML = 'photographers: ' + data[i].name + ' ' + data[i].city;
+        mainContainer.appendChild(div);
+    }
+}
+//scroll 10 px down and the div shows
+      window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+    document.getElementById("scroll__div").style.top = "0";
+  } else {
+    document.getElementById("scroll__div").style.top = "-50px";
+  }
+}
+
+//click on div to go to the top of the page
+var scroll__topbtn = document.getElementById("scroll__topbtn")
+var rootElement = document.documentElement
+
+function scrollToTop() {
+  // Scroll to top logic
+  rootElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+}
+scroll__topbtn.addEventListener("click", scrollToTop)
