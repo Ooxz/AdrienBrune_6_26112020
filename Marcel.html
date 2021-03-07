@@ -18,7 +18,7 @@
                 <div class="sect__div1">
                     <div class="sect__contact">
                 <h4 class="sect__title">Marcel Nikolic</h4>
-                <button class="sect__btn">Contactez-moi</button>
+                <button class="sect__btn btn-signup modal-btn">Contactez-moi</button>
                 <img class="sect__photo" src="FishEye_Photos/Sample_Photos/Marcel/Travel_Tower.jpg" alt="photo d'une enfant noire de peau avec des lunettes">
             </div>
             <div class="sect__description">
@@ -36,6 +36,73 @@
             <section>
                 
             </section>
+            <div class="bground">
+                <div class="content">
+                    <p class="mod-title">Contactez-moi<br>Marcel Nikolic</p>
+                  <span class='close' id="closeButton"></span>
+                  <div class="modal-body">
+                    <form
+                      name="reserve"
+                      action="index.html"
+                      method="get"
+                      id="formId"
+                    >
+                    <!-- j'avais onsubmit="return Validate()" à la place de celui que j'ai mis
+                    Je ne sais pa si il servait a quelque chose-->
+                      <div
+                        class="formData">
+                        <label class="size" for="first">Prénom</label><br>
+                        <input
+                          class="text-control"
+                          type="text"
+                          id="first"
+                          name="first"
+                          minlength="3"
+          
+                        /><br>
+                        <span id="missFirst"></span>
+                        <span id="missFirstNbr"></span>
+                      </div>
+                      <div
+                        class="formData">
+                        <label class="size" for="last">Nom</label><br>
+                        <input
+                          class="text-control"
+                          type="text"
+                          id="last"
+                          name="last"
+                          minlength="3"
+                        /><br>
+                        <span id="missLast"></span>
+                        <span id="missLastNbr"></span>
+                      </div>
+                      <div
+                        class="formData">
+                        <label class="size" for="email">E-mail</label><br>
+                        <input
+                          class="text-control"
+                          type="email"
+                          id="email"
+                          name="email"
+                          onblur=validateEmail(this.value)
+                        /><br>
+                        <span id="missEmail"></span>
+                        <span id="badEmail"></span>
+                      </div>
+                      <div class="formData">
+                      <label class="size" for="subject">Votre message</label><br>
+                      <textarea id="subject" name="your-message"></textarea>
+                      </div>
+                      <input
+                        class="btn-submit"
+                        type="submit"
+                        id="submitId"
+                        value="Envoyer"
+                      />
+                    </form>
+                  </div>
+                </div>
+              </div>
         </main>
         </div>
         <script src="fisheye.js"></script>
