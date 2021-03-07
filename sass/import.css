@@ -177,4 +177,139 @@ ul {
   font-weight: 500;
   color: #901C1C;
 }
+
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.content {
+  margin: 5% auto;
+  -webkit-animation-name: modalopen;
+          animation-name: modalopen;
+  -webkit-animation-duration: var(--modal-duration);
+          animation-duration: var(--modal-duration);
+  background: #DB8876;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  color: #000000;
+  padding-top: 10px;
+  width: 669px;
+  height: 900px;
+}
+
+.modal-body {
+  margin-left: 35px;
+  margin-top: 30px;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 42px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 42px;
+  width: 5px;
+  background-color: #fff;
+}
+
+.close:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.close:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.btn-submit {
+  background: #901C1C;
+  display: block;
+  margin-top: 30px;
+  border-radius: 5px;
+  width: 170px;
+  height: 69px;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 12px 52px;
+  color: #FFFFFF;
+  cursor: pointer;
+  border: 0;
+}
+
+.text-control {
+  width: 599px;
+  border-radius: 5px;
+  font-size: 50px;
+  height: 68px;
+  border: none;
+  outline: none;
+}
+
+#message {
+  height: 170px;
+}
+
+.formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.4em;
+  color: #e54858;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: right;
+  line-height: 0.3;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.formData[data-error-visible="true"]::after {
+  opacity: 1;
+}
+
+.formData[data-error-visible="true"] .text-control {
+  border: 2px solid #e54858;
+}
+
+.mod-title {
+  font-size: 64px;
+  font-weight: 400;
+  margin-left: 35px;
+}
+
+#subject {
+  width: 599px;
+  height: 170px;
+  font-size: 50px;
+  border: none;
+  outline: none;
+}
+
+.size {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 46.87px;
+}
 /*# sourceMappingURL=import.css.map */
