@@ -1,6 +1,6 @@
-/*adJson () 
+adJson () 
     // http://localhost:8080
-    fetch('/Reading/api/file')
+    fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
     .then(response => {
         if (!response.ok) {
             throw new Error("HTTP error " + response.status);
@@ -13,7 +13,7 @@
     })
     .catch(function () {
         this.dataError = true;
-    })*/
+    })
  
     /*var requestURL = 'https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json';
     var request = new XMLHttpRequest();
@@ -64,7 +64,7 @@
         }
       }*/
 
-      fetch('photographers.json')
+      /*fetch('photographers.json')
       .then(function (response) {
         return response.json();
     })
@@ -81,7 +81,7 @@
         div.innerHTML = 'photographers: ' + data[i].name + ' ' + data[i].city;
         mainContainer.appendChild(div);
     }
-}
+}*/
 //scroll 10 px down and the div shows
       window.onscroll = function() {scrollFunction()};
 function scrollFunction() {

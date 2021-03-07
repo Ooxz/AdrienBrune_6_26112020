@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;300;400;500;700;900");
-html {
+* {
   margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  max-width: 1340px;
   font-family: 'DM Sans', sans-serif;
 }
 
@@ -30,6 +36,8 @@ ul {
 
 .header__logo {
   height: 39px;
+  margin-left: 70px;
+  margin-top: 20px;
 }
 
 .header__links {
@@ -72,5 +80,101 @@ ul {
   width: 182px;
   border-radius: 5px;
   font-size: 18px;
+}
+
+.sect__div1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0px 0px 0px 100px;
+}
+
+.sect__contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sect__description {
+  margin-top: -110px;
+}
+
+.sect__title {
+  font-size: 64px;
+  font-weight: 400;
+  color: #D3573C;
+}
+
+.sect__titlenabeel {
+  font-size: 61px;
+  font-weight: 400;
+  color: #D3573C;
+}
+
+.sect__title2 {
+  color: #901C1C;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.sect__subtitle {
+  color: #525252;
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.sect__btn {
+  background-color: #901C1C;
+  color: white;
+  border-radius: 5px;
+  width: 170px;
+  height: 69px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 100px;
+}
+
+.sect__photo {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: 300px;
+  margin-top: 120px;
+}
+
+.sect__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+}
+
+.sect__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sect__navlink {
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #901C1C;
 }
 /*# sourceMappingURL=import.css.map */
