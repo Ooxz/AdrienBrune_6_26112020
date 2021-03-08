@@ -1,3 +1,4 @@
+//section 1
 .sect{
     &__div1{
         display: flex;
@@ -67,9 +68,9 @@
         color: #901C1C;
     }
 }
+//section 1 end
 
 //modal
-
 .bground {
     display: none;
     position: fixed;
@@ -187,3 +188,63 @@
       font-weight: 400;
       line-height: 46.87px;
   }
+  //modal end
+
+  //section 2
+.sect2{
+    &__header{
+      display: flex;
+      align-items: center;
+      margin-left: 70px;
+      margin-top: 60px;
+    }
+}
+
+  //Dropdown Menu
+  .dropdown{
+    &__menu{
+      background-color: #901C1C;
+      color: white;
+      border-radius: 5px;
+      padding: 10px 10px 10px 10px;
+      width: 170px;
+      height: 56.6px;
+      font-size: 18px;
+      font-weight: 700;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 20px;
+      position: relative;
+  }
+  &__option2{
+    border-top: white;
+    border-bottom: 3px solid #0065FC;
+  }
+  &__arrow{
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 20px;
+    color: white;
+    }
+  }
+  .dropdown:hover .dropdown__arrow {
+    transform: rotate(180deg);
+  }
+select::-ms-expand {	
+  display: none;
+}
+select{
+    -webkit-appearance: none;
+    appearance: none;
+}
+//dropdown menu end
+.cards{
+&__img{
+  object-fit: cover;
+  width: 350px;
+  height: 300px;
+  
+  
+  }
+}
