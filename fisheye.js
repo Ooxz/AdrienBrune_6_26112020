@@ -9,13 +9,14 @@
     })
     .then(json => {
         let users = json;
-        users.photographers.forEach(pic => {
-          document.body.innerHTML += `<h1>${pic.portrait}</h1`
-          document.body.innerHTML += `<h1>${pic.name}</h1`
-          document.body.innerHTML += `<h1>${pic.city}</h1`
-          document.body.innerHTML += `<h1>${pic.country}</h1`
-          document.body.innerHTML += `<h1>${pic.tagline}</h1`
-          document.body.innerHTML += `<h1>${pic.price}</h1`
+        users.photographers.forEach(infos => {
+          document.querySelector("#section2__title").innerHTML += `<image>${infos.portrait}</image`
+          document.querySelector("#section2__title").innerHTML += `<h1>${infos.name}</h1`
+          document.querySelector("#section2__title").innerHTML += `<h2>${infos.city}</h1`
+          document.querySelector("#section2__title").innerHTML += `<h2>${infos.country}</h1`
+          document.querySelector("#section2__title").innerHTML += `<h3>${infos.tagline}</h1`
+          document.querySelector("#section2__title").innerHTML += `<h4>${infos.price}</h1`
+          document.querySelector("#section2__title").innerHTML += `<h5>${infos.tags}</h1`
         })
         console.log(users);
     })
