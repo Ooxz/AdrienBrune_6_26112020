@@ -49,11 +49,13 @@ function generatedCard(item){
   card = `<a href="photographer.html?id=${id}">
             <div class="card">
               <image class="card__img" src="./FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${portrait}" alt="FishEye photographers - ${name}">
+              <div class="card__text">
               <h2 class="card__name">${name}</h2>
               <p class="card__city">${city}, ${country}</p>
               <p class="card__quote">${tagline}</p>
-              <p class="card__quote">${price}$/jour</p>
-              <p class="card__quote">${tags}</p>
+              <p class="card__price">${price}$/jour</p>
+              <p class="card__tag">${tags}</p>
+              </div>
               </div>
               </a>
               `
