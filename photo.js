@@ -23,3 +23,8 @@ document.getElementById('closeButton').addEventListener('click', (event) => {
       modalbg.style.display = "none";
     }
   }
+
+  var clicks = 0;
+        function updateClickCount() {
+            document.getElementById("clickCount").innerHTML = clicks;
+        }

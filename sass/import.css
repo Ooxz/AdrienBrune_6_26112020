@@ -97,24 +97,31 @@ ul {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 #photographs a {
-  width: 25%;
-  margin: 0 4%;
+  width: 5%;
+  margin: 0 3%;
 }
 
-.card {
+.main__frame {
   width: 100%;
-  margin: 0% 4%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -156,6 +163,7 @@ ul {
   color: #D3573C;
   font-size: 36px;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 .card__city {

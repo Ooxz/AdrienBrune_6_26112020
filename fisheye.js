@@ -46,7 +46,7 @@ function scrollToTop() {
 
 function generatedCard(item){
   const {name,id,city,country,tags,tagline,price,portrait} = item;
-  card = `<a href="photographer.html?id=${id}">
+  card = `<a class="main__frame" href="photographer.html?id=${id}">
             <div class="card">
               <image class="card__img" src="./FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${portrait}" alt="FishEye photographers - ${name}">
               <div class="card__text">
@@ -54,10 +54,20 @@ function generatedCard(item){
               <p class="card__city">${city}, ${country}</p>
               <p class="card__quote">${tagline}</p>
               <p class="card__price">${price}$/jour</p>
-              <p class="card__tag">${tags}</p>
-              </div>
               </div>
               </a>
+              <p class="card__tag">${displayTags(tags)}</p>
+              </div>
+              
               `
               return card;
+}
+
+function displayTags(tags){
+  let stringTemplate = ``;
+  tags.forEach(tag => {
+    console.log(tag)
+    stringTemplate += `<a><span>#${tag}</span></a>`
+  });
+  return stringTemplate
 }
