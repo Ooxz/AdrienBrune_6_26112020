@@ -133,6 +133,7 @@ ul {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 50px;
+  width: 20%;
 }
 
 .card__text {

@@ -3,7 +3,8 @@ window.onscroll = function() {scrollFunction()};
 //click on div to go to the top of the page
 var scroll__topbtn = document.getElementById("scroll__topbtn");
 var rootElement = document.documentElement;
-scroll__topbtn.addEventListener("click", scrollToTop)
+scroll__topbtn.addEventListener("click", scrollToTop);
+
 //adJson () 
     // http://localhost:8080
     fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
@@ -71,3 +72,5 @@ function displayTags(tags){
   });
   return stringTemplate
 }
+
+
