@@ -47,7 +47,7 @@ function scrollToTop() {
 
 function generatedCard(item){
   const {name,id,city,country,tags,tagline,price,portrait} = item;
-  card = `<a class="main__frame" href="photographer.html?id=${id}">
+  let createdCard = `<a class="main__frame" href="photographer.html?id=${id}">
             <div class="card">
               <image class="card__img" src="./FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${portrait}" alt="FishEye photographers - ${name}">
               <div class="card__text">
@@ -61,7 +61,7 @@ function generatedCard(item){
               </div>
               
               `
-              return card;
+              return createdCard;
 }
 
 function displayTags(tags){
