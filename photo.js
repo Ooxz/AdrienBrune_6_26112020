@@ -38,11 +38,13 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
   if(idPhotographer !== undefined){
     const photographer = getPhotographerFromData(data, idPhotographer);
     console.log(photographer);
+    document.getElementById("modal__name").textContent =`Contactez-moi ${photographer.name}`;
     document.getElementById("photographer__name").textContent = photographer.name;
     document.getElementById("photographer__city").textContent = `${photographer.city},`;
     document.getElementById("photographer__country").textContent =photographer.country;
     document.getElementById("photographer__tagline").textContent = photographer.tagline;
     document.getElementById("photographer__tags").textContent = `${displayTags(photographer.tags)}`;
+    document.getElementById("photographer__photo").innerHTML = photographer.portrait;
     const medias = getMediaFromData(data, idPhotographer);
     console.log(medias);
   }
@@ -89,11 +91,12 @@ function getMediaFromData(data, photographerId){
 //               return card;
 // }
 
+//fonction pour que les # se mettent devant les tags
 function displayTags(tags){
   let stringTemplate = ``;
   tags.forEach(tag => {
     console.log(tag)
-    stringTemplate += `#${tag}`
+    stringTemplate += `#${tag} `
   });
   return stringTemplate
 }

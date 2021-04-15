@@ -359,6 +359,10 @@ ul {
   }
 }
 
+.header__logo {
+  margin-left: 100px;
+}
+
 .sect__div1 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -392,18 +396,30 @@ ul {
   font-size: 64px;
   font-weight: 400;
   color: #D3573C;
+  white-space: nowrap;
 }
 
-.sect__titlenabeel {
-  font-size: 61px;
-  font-weight: 400;
-  color: #D3573C;
+.sect__region {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .sect__title2 {
   color: #901C1C;
   font-weight: 400;
   font-size: 24px;
+}
+
+.sect__title3 {
+  color: #901C1C;
+  font-weight: 400;
+  font-size: 24px;
+  margin-left: 10px;
 }
 
 .sect__subtitle {
@@ -440,6 +456,8 @@ ul {
   display: -ms-flexbox;
   display: flex;
   margin-top: 20px;
+  color: #901C1C;
+  margin-left: 0px;
 }
 
 .sect__links {
@@ -449,7 +467,7 @@ ul {
 }
 
 .sect__navlink {
-  margin-right: 20px;
+  margin: 20px;
   font-size: 18px;
   font-weight: 500;
   color: #901C1C;

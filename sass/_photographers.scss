@@ -1,3 +1,7 @@
+.header__logo{
+  margin-left: 100px;
+}
+
 //section 1
 .sect{
     &__div1{
@@ -18,17 +22,23 @@
         font-size: 64px;
         font-weight: 400;
         color: #D3573C;
+        white-space: nowrap;
     }
-    &__titlenabeel{
-        font-size: 61px;
-        font-weight: 400;
-        color: #D3573C;
+    &__region{
+      display: flex;
+      flex-direction: row;
     }
     &__title2{
         color: #901C1C;
         font-weight: 400;
         font-size: 24px;
     }
+    &__title3{
+      color: #901C1C;
+      font-weight: 400;
+      font-size: 24px;
+      margin-left: 10px;
+  }
     &__subtitle{
         color: #525252;
         font-weight: 400;
@@ -57,12 +67,16 @@
     &__nav{
         display: flex;
         margin-top: 20px;
+        color: #901C1C;
+        margin-left: 0px;
+        
     }
     &__links{
         display: flex;
+        
     }
     &__navlink{
-        margin-right: 20px;
+        margin: 20px;
         font-size: 18px;
         font-weight: 500;
         color: #901C1C;
