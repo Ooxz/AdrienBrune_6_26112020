@@ -49,7 +49,8 @@ function generatedCard(item){
   const {name,id,city,country,tags,tagline,price,portrait} = item;
   let createdCard = `<a class="main__frame" href="photographer.html?id=${id}">
             <div class="card">
-              <image class="card__img" src="./FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${portrait}" alt="FishEye photographers - ${name}">
+              <image class="card__img" src="./FishEye_Photos/Sample_Photos/
+              Photographers_ID_Photos/${portrait}" alt="FishEye photographers - ${name}">
               <div class="card__text">
               <h2 class="card__name">${name}</h2>
               <p class="card__city">${city}, ${country}</p>
