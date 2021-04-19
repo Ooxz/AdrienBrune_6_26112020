@@ -47,6 +47,8 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
     document.getElementById("photographer__photo").innerHTML = photographer.portrait;
     const medias = getMediaFromData(data, idPhotographer);
     console.log(medias);
+    let card = generatedCard(medias);
+          document.getElementById('photographers__photos').innerHTML += card;
   }
 })
 .catch(error => console.error(error.message));
@@ -72,24 +74,7 @@ function getMediaFromData(data, photographerId){
   return data.photographers.filter(elt => elt.photographerId == photographerId)
 }
   
-// function generatedCard(item){
-//   const {name,id,city,country,tags,tagline,price,portrait} = item;
-//   card = `<a class="main__frame" href="photographer.html?id=${id}">
-//             <div class="card">
-//               <image class="card__img" src="./FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${portrait}" alt="FishEye photographers - ${name}">
-//               <div class="card__text">
-//               <h2 class="card__name">${name}</h2>
-//               <p class="card__city">${city}, ${country}</p>
-//               <p class="card__quote">${tagline}</p>
-//               <p class="card__price">${price}$/jour</p>
-//               </div>
-//               </a>
-//               <p class="card__tag">${displayTags(tags)}</p>
-//               </div>
-              
-//               `
-//               return card;
-// }
+
 
 //fonction pour que les # se mettent devant les tags
 function displayTags(tags){
@@ -100,3 +85,30 @@ function displayTags(tags){
   });
   return stringTemplate
 }
+
+function generatedCard(item){
+  const {id,price,image,title,likes,idPhotographer} = item;
+  let createdCard = `<a class="main__frame" href="">
+            <div class="card">
+              <image class="photographs__pictures" src="photographer.html?id=${id}${image}" alt="FishEye photographers">
+              <div class="photo__info">
+              <p class"photo__title">${title}</p>
+              <p class="photo__price">${price} €</p>
+              <button id="btn" class="fas fa-heart fontIcon"></button>
+              <p><span id="display">${likes}</span></p>
+              </div>
+              </a>
+              </div>
+              
+              `
+              return createdCard;
+}
+
+var count = 0;
+        var btn = document.getElementById("btn");
+        var disp = document.getElementById("display");
+  
+        btn.onclick = function () {
+            count++;
+            disp.innerHTML = count;
+        }
