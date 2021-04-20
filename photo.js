@@ -44,7 +44,9 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
     document.getElementById("photographer__country").textContent =photographer.country;
     document.getElementById("photographer__tagline").textContent = photographer.tagline;
     document.getElementById("photographer__tags").textContent = `${displayTags(photographer.tags)}`;
-    document.getElementById("photographer__photo").innerHTML = photographer.portrait;
+    var test = document.createElement("IMG");
+    test.setAttribute("src", photographer.portrait);
+    document.getElementById("photographer__photo").appendChild (test);
     const medias = getMediaFromData(data, idPhotographer);
     console.log(medias);
     let card = generatedCard(medias);
@@ -92,7 +94,7 @@ function generatedCard(item){
             <div class="card">
               <image class="photographs__pictures" src="photographer.html?id=${id}${image}" alt="FishEye photographers">
               <div class="photo__info">
-              <p class"photo__title">${title}</p>
+              <p class"photo__title">item.id</p>
               <p class="photo__price">${price} €</p>
               <button id="btn" class="fas fa-heart fontIcon"></button>
               <p><span id="display">${likes}</span></p>
