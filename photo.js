@@ -45,13 +45,16 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
     document.getElementById("photographer__tagline").textContent = photographer.tagline;
     document.getElementById("photographer__tags").textContent = `${displayTags(photographer.tags)}`;
     var test = document.createElement("IMG");
-    test.setAttribute("src", photographer.portrait);
+    test.setAttribute("src", `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${photographer.portrait}`);
     document.getElementById("photographer__photo").appendChild (test);
     const medias = getMediaFromData(data, idPhotographer);
     console.log(medias);
-    let card = generatedCard(medias);
-          document.getElementById('photographers__photos').innerHTML += card;
-  }
+    medias.forEach(media => {
+      let card = generatedCard(media);
+      document.getElementById('photographers__photos').innerHTML += card;
+
+    })
+  } 
 })
 .catch(error => console.error(error.message));
 
@@ -68,12 +71,19 @@ function getParamFromURL(param){
   return result;
 }
 
+function getDomainFromUrl(){
+  let url = new URL(window.location)
+  console.log("url", url);
+  return  url.origin
+}
+
 function getPhotographerFromData(data, id){
   return data.photographers.find(elt => elt.id == id);
 }
 
 function getMediaFromData(data, photographerId){
-  return data.photographers.filter(elt => elt.photographerId == photographerId)
+  console.log("data", data)
+  return data.media.filter(elt => elt.photographerId == photographerId)
 }
   
 
@@ -89,12 +99,13 @@ function displayTags(tags){
 }
 
 function generatedCard(item){
+  console.log(item);
   const {id,price,image,title,likes,idPhotographer} = item;
   let createdCard = `<a class="main__frame" href="">
             <div class="card">
               <image class="photographs__pictures" src="photographer.html?id=${id}${image}" alt="FishEye photographers">
               <div class="photo__info">
-              <p class"photo__title">item.id</p>
+              <p class"photo__title">${title}</p>
               <p class="photo__price">${price} €</p>
               <button id="btn" class="fas fa-heart fontIcon"></button>
               <p><span id="display">${likes}</span></p>

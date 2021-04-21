@@ -640,44 +640,52 @@ ul {
 }
 
 .dropdown__trigger {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
-  color: white;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 22px;
   font-size: 18px;
   font-weight: 300;
-  padding: 0 22px;
+  color: white;
   height: 55px;
   line-height: 60px;
   background-color: #901C1C;
-  border-radius: 4.5px;
-  -webkit-transition: .3s;
-  transition: .3s;
   cursor: pointer;
+  border-radius: 5px;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .dropdown__menu {
-  background-color: #901C1C;
-  display: block;
-  z-index: 2;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
   top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #901C1C;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  right: 0;
-  left: 0;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  visibility: none;
+  z-index: 2;
 }
 
-.dropdown__option {
+.dropdown__menu .dropdown-option {
   position: relative;
   display: block;
   padding: 0 22px 0 12px;
@@ -685,22 +693,23 @@ ul {
   font-weight: 300;
   color: white;
   line-height: 60px;
-  -webkit-transition: all 0.4;
-  transition: all 0.4;
   cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.dropdown__option:hover {
+.dropdown__menu .dropdown-option:hover {
+  cursor: pointer;
+  background-color: #b82121;
   border-radius: 5px;
-  cursor: pointer;
 }
 
-.dropdown__option__select.open .dropdown__menu {
+.dropdown__select.open .dropdown__menu {
   margin-top: 4px;
-  visibility: visible;
   opacity: 1;
-  border-radius: 5px;
+  visibility: visible;
   pointer-events: all;
+  border-radius: 5px;
 }
 
 .arrow {
@@ -715,34 +724,32 @@ ul {
   bottom: 0px;
   width: 0.15rem;
   height: 100%;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
 }
 
 .arrow::before {
   left: -5px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
   background-color: white;
 }
 
 .arrow::after {
   left: 5px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
   background-color: white;
 }
 
 .open .arrow::before {
-  left: -5px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  left: 5px;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
 }
 
 .open .arrow::after {
-  left: 5px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  left: -5px;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
 }
 
 .cards__img {
