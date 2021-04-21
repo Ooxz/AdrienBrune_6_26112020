@@ -45,13 +45,18 @@
           <div class="sect2__menu">
             <h3 class="sect2__title">Trier par</h3>
           </div>
-          <div class="dropdown">
-            <select class="dropdown__menu" onclick="myFunction()">
-              <option class="dropdown__option dropdown__option1" value="popularity">Popularité</option>
-              <option class="dropdown__option dropdown__option2" value="date">Date</option>
-              <option class="dropdown__option dropdown__option3" value="titre">Titre</option>
-            </select>
-            <i class="fas fa-angle-down dropdown__arrow"></i>
+          <div class="dropdown__main">
+            <div class="dropdown__select">
+            <div class="dropdown__trigger"><span>Choix</span>
+              <div class="arrow"></div>
+          </div>
+            <div class="dropdown__menu">
+              <span class="dropdown__option" data-value="popularity">Popularité</span>
+              <span class="dropdown__option" data-value="date">Date</span>
+              <span class="dropdown__option" data-value="title">Titre</span>
+              <span class="dropdown__option selected" data-value=""></span>
+            </div>
+          </div>
           </div>
         </div>
         <div class="cards">
@@ -73,8 +78,6 @@
           <span class='close' id="closeButton"></span>
           <div class="modal-body">
             <form name="reserve" action="index.html" method="get" id="formId">
-              <!-- j'avais onsubmit="return Validate()" à la place de celui que j'ai mis
-                    Je ne sais pa si il servait a quelque chose-->
               <div class="formData">
                 <label class="size" for="first">Prénom</label><br>
                 <input class="text-control" type="text" id="first" name="first" minlength="3" /><br>
