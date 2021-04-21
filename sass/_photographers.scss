@@ -345,10 +345,10 @@
   }
 }
 .main__card{
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 .card__all {
   display: flex;
@@ -366,6 +366,8 @@
   }
   .photo__info{
     display: flex;
+    width: 350px!important;
+    justify-content: space-between;
 }
 
   .photo__title{
@@ -373,21 +375,25 @@
     font-size: 24px;
     font-weight: 400;
     white-space: nowrap;
+    
   }
   .photo__price{
     font-size: 24px;
     font-weight: 500;
     color: #901C1C;
     white-space: nowrap;
+    margin-left: auto;
   }
   .photo__likes{
     font-size: 24px;
     font-weight: 500;
     color: #901C1C;
+    white-space: nowrap;
   }
 
   .fontIcon{
     font-size: 25px;
     font-weight: 400;
     color: #901C1C;
+    white-space: nowrap;
   }

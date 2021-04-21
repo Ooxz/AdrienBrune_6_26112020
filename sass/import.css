@@ -783,7 +783,6 @@ ul {
 }
 
 .main__card {
-  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -826,6 +825,10 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 350px !important;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .photo__title {
@@ -840,17 +843,20 @@ ul {
   font-weight: 500;
   color: #901C1C;
   white-space: nowrap;
+  margin-left: auto;
 }
 
 .photo__likes {
   font-size: 24px;
   font-weight: 500;
   color: #901C1C;
+  white-space: nowrap;
 }
 
 .fontIcon {
   font-size: 25px;
   font-weight: 400;
   color: #901C1C;
+  white-space: nowrap;
 }
 /*# sourceMappingURL=import.css.map */
