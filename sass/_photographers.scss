@@ -82,6 +82,14 @@
         color: #901C1C;
     }
 }
+#photographer__photo img{
+  object-fit: cover;
+    border-radius:50%;
+    width: 200px;
+    height: 200px;
+    margin-right: 150px;
+    margin-top: 10px;
+}
 //section 1 end
 
 //modal
@@ -328,3 +336,58 @@
   
   }
 }
+#photographers__photos{
+  display: flex; 
+  flex-wrap: wrap; 
+  a{
+    width: 5%;
+    margin: 0 3%;
+  }
+}
+.main__card{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card__all {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  width: 20%;
+}
+  .photographs__pictures{
+      width: 350px;
+      height: 300px;
+      border-radius: 2%;
+      object-fit: cover;
+  }
+  .photo__info{
+    display: flex;
+}
+
+  .photo__title{
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .photo__price{
+    font-size: 24px;
+    font-weight: 500;
+    color: #901C1C;
+    white-space: nowrap;
+  }
+  .photo__likes{
+    font-size: 24px;
+    font-weight: 500;
+    color: #901C1C;
+  }
+
+  .fontIcon{
+    font-size: 25px;
+    font-weight: 400;
+    color: #901C1C;
+  }

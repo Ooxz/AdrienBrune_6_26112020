@@ -473,6 +473,16 @@ ul {
   color: #901C1C;
 }
 
+#photographer__photo img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-right: 150px;
+  margin-top: 10px;
+}
+
 .bground {
   display: none;
   position: fixed;
@@ -757,5 +767,90 @@ ul {
      object-fit: cover;
   width: 350px;
   height: 300px;
+}
+
+#photographers__photos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#photographers__photos a {
+  width: 5%;
+  margin: 0 3%;
+}
+
+.main__card {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card__all {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+  width: 20%;
+}
+
+.photographs__pictures {
+  width: 350px;
+  height: 300px;
+  border-radius: 2%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.photo__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.photo__title {
+  color: #901C1C;
+  font-size: 24px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.photo__price {
+  font-size: 24px;
+  font-weight: 500;
+  color: #901C1C;
+  white-space: nowrap;
+}
+
+.photo__likes {
+  font-size: 24px;
+  font-weight: 500;
+  color: #901C1C;
+}
+
+.fontIcon {
+  font-size: 25px;
+  font-weight: 400;
+  color: #901C1C;
 }
 /*# sourceMappingURL=import.css.map */

@@ -38,6 +38,7 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
   if(idPhotographer !== undefined){
     const photographer = getPhotographerFromData(data, idPhotographer);
     console.log(photographer);
+    const photographerFolder = getPhotographerFolder(photographer.name);
     document.getElementById("modal__name").textContent =`Contactez-moi ${photographer.name}`;
     document.getElementById("photographer__name").textContent = photographer.name;
     document.getElementById("photographer__city").textContent = `${photographer.city},`;
@@ -50,7 +51,7 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
     const medias = getMediaFromData(data, idPhotographer);
     console.log(medias);
     medias.forEach(media => {
-      let card = generatedCard(media);
+      let card = generatedCard(media, photographerFolder);
       document.getElementById('photographers__photos').innerHTML += card;
 
     })
@@ -70,7 +71,7 @@ function getParamFromURL(param){
   }
   return result;
 }
-
+// function to get picture url
 function getDomainFromUrl(){
   let url = new URL(window.location)
   console.log("url", url);
@@ -85,7 +86,13 @@ function getMediaFromData(data, photographerId){
   console.log("data", data)
   return data.media.filter(elt => elt.photographerId == photographerId)
 }
-  
+
+function getPhotographerFolder(photographer){
+  let surname = photographer.split(' ')[0];
+  let formalizedSurname = surname.replace('-', ('_'));
+  console.log("foldername", formalizedSurname);
+  return formalizedSurname;
+}
 
 
 //fonction pour que les # se mettent devant les tags
@@ -98,20 +105,21 @@ function displayTags(tags){
   return stringTemplate
 }
 
-function generatedCard(item){
+function generatedCard(item, folder){
   console.log(item);
   const {id,price,image,title,likes,idPhotographer} = item;
-  let createdCard = `<a class="main__frame" href="">
-            <div class="card">
-              <image class="photographs__pictures" src="photographer.html?id=${id}${image}" alt="FishEye photographers">
+  let createdCard = `<a class="main__card" href="">
+            <div class="card__all">
+              <image class="photographs__pictures" src="${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${folder}/${image}" alt="FishEye photographers">
               <div class="photo__info">
-              <p class"photo__title">${title}</p>
-              <p class="photo__price">${price} €</p>
-              <button id="btn" class="fas fa-heart fontIcon"></button>
-              <p><span id="display">${likes}</span></p>
+              <p class="photo__title">${title}</p>
+              <p class="photo__price">${price}€</p>
+              <p><span class="photo__likes" id="display">${likes}</span></p>
+              <div id="btn" class="fontIcon">❤</div>
               </div>
               </a>
               </div>
+              
               
               `
               return createdCard;
