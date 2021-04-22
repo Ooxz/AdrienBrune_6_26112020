@@ -637,6 +637,7 @@ ul {
       -ms-user-select: none;
           user-select: none;
   width: 160px;
+  margin-left: 20px;
 }
 
 .dropdown__select {
@@ -660,7 +661,7 @@ ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 22px;
+  padding: 0 13px;
   font-size: 18px;
   font-weight: 300;
   color: white;
@@ -685,11 +686,10 @@ ul {
   color: white;
   top: 100%;
   left: 0;
+  padding: 10px 8px 10px 8px;
   right: 0;
   background-color: #901C1C;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  opacity: 0;
+  opacity: 1;
   visibility: hidden;
   pointer-events: none;
   z-index: 2;
@@ -704,8 +704,6 @@ ul {
   color: white;
   line-height: 60px;
   cursor: pointer;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
 }
 
 .dropdown__menu .dropdown-option:hover {
@@ -718,14 +716,42 @@ ul {
   margin-top: 4px;
   opacity: 1;
   visibility: visible;
+  margin-top: -50px;
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
   pointer-events: all;
   border-radius: 5px;
+}
+
+.dropdown__option1 {
+  padding: 0px 0 15px 0;
+  margin-left: 5px;
+}
+
+.dropdown__border1 {
+  border: 1px solid white;
+}
+
+.dropdown__option2 {
+  padding: 15px 0 15px 0;
+  margin-left: 5px;
+}
+
+.dropdown__border2 {
+  border: 1px solid white;
+}
+
+.dropdown__option3 {
+  padding: 15px 0 10px 0;
+  margin-left: 5px;
 }
 
 .arrow {
   position: relative;
   height: 15px;
   width: 15px;
+  z-index: 3;
 }
 
 .arrow::before, .arrow::after {
@@ -844,6 +870,7 @@ ul {
   color: #901C1C;
   white-space: nowrap;
   margin-left: auto;
+  margin-right: 15px;
 }
 
 .photo__likes {
