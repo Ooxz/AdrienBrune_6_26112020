@@ -109,14 +109,14 @@ function displayTags(tags){
 function generatedCard(item, folder){
   console.log(item);
   const {price,image,title,likes,} = item;
-  let createdCard = `<a class="main__card" href="">
+  let createdCard = `<a class="main__card">
             <div class="card__all">
               <image class="photographs__pictures" src="${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${folder}/${image}" alt="FishEye photographers">
               <div class="photo__info">
               <p class="photo__title">${title}</p>
               <p class="photo__price">${price}€</p>
-              <p><span class="photo__likes" id="display">${likes}</span></p>
-              <div id="btn" class="fontIcon">❤</div>
+              <p><span id="display" class="photo__likes" >${likes}</span></p>
+              <button id="btn" class="fontIcon">❤</button>
               </div>
               </a>
               </div>
@@ -129,14 +129,14 @@ function generatedCard(item, folder){
 function generatedCard2(item, folder){
   console.log(item);
   const {price,video,title,likes,} = item;
-  let createdCard = `<a class="main__card" href="">
+  let createdCard = `<a class="main__card">
             <div class="card__all">
-              <video class="photographs__pictures" src="${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${folder}/${video}">
+              <video class="photographs__pictures" src="${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${folder}/${video}" type="video/mp4">
               <div class="photo__info">
               <p class="photo__title">${title}</p>
               <p class="photo__price">${price}€</p>
-              <p><span class="photo__likes" id="display">${likes}</span></p>
-              <div id="btn" class="fontIcon">❤</div>
+              <p><span id="display" class="photo__likes" ">${likes}${count++}</span></p>
+              <button id="btn">❤</button>
               </div>
               </a>
               </div>
@@ -146,15 +146,6 @@ function generatedCard2(item, folder){
               return createdCard;
 }
 
-// Likes count
-var count = 0;
-        var btn = document.getElementById("btn");
-        var disp = document.getElementById("display");
-  
-        btn.onclick = function () {
-            count++;
-            disp.innerHTML = count;
-        }
 
 // dropdown menu
 
@@ -183,3 +174,15 @@ window.addEventListener('click', function (e) {
 })
 
 
+// Likes count
+var count = 0;
+        var btn = document.getElementById("btn");
+        var disp = document.getElementById("display");
+  
+        btn.onclick = function () {
+            count++;
+            disp.innerHTML = count;
+        }
+
+        
+      
