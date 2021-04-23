@@ -52,8 +52,8 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
     console.log(medias);
     medias.forEach(media => {
       let card = generatedCard(media, photographerFolder);
-      document.getElementById('photographers__photos').innerHTML += card;
-
+      let card2 = generatedCard2(media, photographerFolder);
+      document.getElementById('photographers__photos').innerHTML += card += card2;
     })
   } 
 })
@@ -105,12 +105,33 @@ function displayTags(tags){
   return stringTemplate
 }
 
+//function for images
 function generatedCard(item, folder){
   console.log(item);
-  const {id,price,image,title,likes,idPhotographer} = item;
+  const {price,image,title,likes,} = item;
   let createdCard = `<a class="main__card" href="">
             <div class="card__all">
               <image class="photographs__pictures" src="${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${folder}/${image}" alt="FishEye photographers">
+              <div class="photo__info">
+              <p class="photo__title">${title}</p>
+              <p class="photo__price">${price}€</p>
+              <p><span class="photo__likes" id="display">${likes}</span></p>
+              <div id="btn" class="fontIcon">❤</div>
+              </div>
+              </a>
+              </div>
+              
+              
+              `
+              return createdCard;
+}
+
+function generatedCard2(item, folder){
+  console.log(item);
+  const {price,video,title,likes,} = item;
+  let createdCard = `<a class="main__card" href="">
+            <div class="card__all">
+              <video class="photographs__pictures" src="${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${folder}/${video}">
               <div class="photo__info">
               <p class="photo__title">${title}</p>
               <p class="photo__price">${price}€</p>
@@ -160,3 +181,5 @@ window.addEventListener('click', function (e) {
     }
   }
 })
+
+
