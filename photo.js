@@ -185,4 +185,32 @@ var count = 0;
         }
 
         
-      
+// sort by date/title/popularité
+let popularity = document.getElementById('dropdown__option1');
+let date = document.getElementById('dropdown__option2');
+let titre = document.getElementById('dropdown__option3');
+
+popularity.addEventListener('click', () => popularitySort(photographerId.media));
+popularity.addEventListener('keypress', (e) => {
+  if (e.key === 13) {
+    popularitySort(photographerId.media);
+  }
+});
+
+
+Array.sort(function allLikes(a, b) {
+  return a.likes - b.likes;
+})
+
+
+Array.sort(function allTitles(a, b) {
+  if (a.title.toLowerCase() < b.title.toLowerCase()) 
+  return -1;
+  if(a.title.toLowerCase() > b.title.toLowerCase())
+  return 1;
+  return 0;
+})
+
+Array.sort(function allDates(a, b) {
+  return a.date - b.date;
+})
