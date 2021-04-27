@@ -116,7 +116,7 @@ function generatedCard(item, folder){
               <p class="photo__title">${title}</p>
               <p class="photo__price">${price}€</p>
               <p><span id="display" class="photo__likes" >${likes}</span></p>
-              <button id="btn" class="fontIcon">❤</button>
+              <button id="btn" class="fontIcon" value="0">❤</button>
               </div>
               </a>
               </div>
@@ -136,7 +136,7 @@ function generatedCard2(item, folder){
               <p class="photo__title">${title}</p>
               <p class="photo__price">${price}€</p>
               <p><span id="display" class="photo__likes" ">${likes}${count++}</span></p>
-              <button id="btn">❤</button>
+              <input id="btn" >❤</input>
               </div>
               </a>
               </div>
@@ -173,44 +173,54 @@ window.addEventListener('click', function (e) {
   }
 })
 
+//likes
 
+let btn = document.getElementById("btn");
+                 
+let disp = document.getElementById("display");
+
+btn.addEventListener('click', () => {
+display.value = parseInt(input.likes) + 1;
+})
 // Likes count
+
 var count = 0;
-        var btn = document.getElementById("btn");
-        var disp = document.getElementById("display");
+        //  var btn = document.getElementById("btn");
+                 
+        //  var disp = document.getElementById("display");
   
-        btn.onclick = function () {
-            count++;
-            disp.innerHTML = count;
-        }
+        // btn.onclick = function () {
+        //     count++;
+        //     disp.innerHTML = count;
+        // }
 
         
 // sort by date/title/popularité
-let popularity = document.getElementById('dropdown__option1');
-let date = document.getElementById('dropdown__option2');
-let titre = document.getElementById('dropdown__option3');
+// let popularity = document.getElementById('dropdown__option1');
+// let date = document.getElementById('dropdown__option2');
+// let titre = document.getElementById('dropdown__option3');
 
-popularity.addEventListener('click', () => popularitySort(photographerId.media));
-popularity.addEventListener('keypress', (e) => {
-  if (e.key === 13) {
-    popularitySort(photographerId.media);
-  }
-});
-
-
-Array.sort(function allLikes(a, b) {
-  return a.likes - b.likes;
-})
+// popularity.addEventListener('click', () => popularitySort(photographerId.media));
+// popularity.addEventListener('keypress', (e) => {
+//   if (e.key === 13) {
+//     popularitySort(photographerId.media);
+//   }
+// });
 
 
-Array.sort(function allTitles(a, b) {
-  if (a.title.toLowerCase() < b.title.toLowerCase()) 
-  return -1;
-  if(a.title.toLowerCase() > b.title.toLowerCase())
-  return 1;
-  return 0;
-})
+// Array.sort(function allLikes(a, b) {
+//   return a.likes - b.likes;
+// })
 
-Array.sort(function allDates(a, b) {
-  return a.date - b.date;
-})
+
+// Array.sort(function allTitles(a, b) {
+//   if (a.title.toLowerCase() < b.title.toLowerCase()) 
+//   return -1;
+//   if(a.title.toLowerCase() > b.title.toLowerCase())
+//   return 1;
+//   return 0;
+// })
+
+// Array.sort(function allDates(a, b) {
+//   return a.date - b.date;
+// })
