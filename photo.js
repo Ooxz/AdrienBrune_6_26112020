@@ -1,3 +1,5 @@
+import Media from './media.class.js';
+
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
@@ -50,10 +52,13 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
     document.getElementById("photographer__photo").appendChild (test);
     const medias = getMediaFromData(data, idPhotographer);
     console.log(medias);
-    medias.forEach(media => {
-      let card = generatedCard(media, photographerFolder);
-      let card2 = generatedCard2(media, photographerFolder);
-      document.getElementById('photographers__photos').innerHTML += card += card2;
+    medias.forEach(item => {
+      let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
+      let media = new Media(item, baseUrl)
+      document.getElementById('photographers__photos').innerHTML += media.media.displayInList();
+      
+      
+      
     })
   } 
 })
@@ -105,7 +110,7 @@ function displayTags(tags){
   return stringTemplate
 }
 
-//function for images
+// function for images
 function generatedCard(item, folder){
   console.log(item);
   const {price,image,title,likes,} = item;
@@ -131,7 +136,7 @@ function generatedCard2(item, folder){
   const {price,video,title,likes,} = item;
   let createdCard = `<a class="main__card">
             <div class="card__all">
-              <video class="photographs__pictures" src="${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${folder}/${video}" type="video/mp4">
+              <video class="photographs__pictures" src="${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${folder}/${video}" type="video/mp4"></video>
               <div class="photo__info">
               <p class="photo__title">${title}</p>
               <p class="photo__price">${price}€</p>
@@ -181,7 +186,7 @@ let disp = document.getElementById("display");
 
 btn.addEventListener('click', () => {
 display.value = parseInt(input.likes) + 1;
-})
+});
 // Likes count
 
 var count = 0;
@@ -202,7 +207,7 @@ var count = 0;
 
 // popularity.addEventListener('click', () => popularitySort(photographerId.media));
 // popularity.addEventListener('keypress', (e) => {
-//   if (e.key === 13) {
+//   if (e.keyCode === 13) {
 //     popularitySort(photographerId.media);
 //   }
 // });
