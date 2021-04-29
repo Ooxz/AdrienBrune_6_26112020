@@ -8,7 +8,7 @@ export default class Media {
         this.media = new PhotographerImage(item);
 
     }else{
-        item.video = baseUrl + item.video;
+        item.videoUrl = baseUrl + item.video;
         this.media = new PhotographerVideo(item);
     }
 }

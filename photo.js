@@ -110,46 +110,6 @@ function displayTags(tags){
   return stringTemplate
 }
 
-// function for images
-function generatedCard(item, folder){
-  console.log(item);
-  const {price,image,title,likes,} = item;
-  let createdCard = `<a class="main__card">
-            <div class="card__all">
-              <image class="photographs__pictures" src="${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${folder}/${image}" alt="FishEye photographers">
-              <div class="photo__info">
-              <p class="photo__title">${title}</p>
-              <p class="photo__price">${price}€</p>
-              <p><span id="display" class="photo__likes" >${likes}</span></p>
-              <button id="btn" class="fontIcon" value="0">❤</button>
-              </div>
-              </a>
-              </div>
-              
-              
-              `
-              return createdCard;
-}
-
-function generatedCard2(item, folder){
-  console.log(item);
-  const {price,video,title,likes,} = item;
-  let createdCard = `<a class="main__card">
-            <div class="card__all">
-              <video class="photographs__pictures" src="${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${folder}/${video}" type="video/mp4"></video>
-              <div class="photo__info">
-              <p class="photo__title">${title}</p>
-              <p class="photo__price">${price}€</p>
-              <p><span id="display" class="photo__likes" ">${likes}${count++}</span></p>
-              <input id="btn" >❤</input>
-              </div>
-              </a>
-              </div>
-              
-              
-              `
-              return createdCard;
-}
 
 
 // dropdown menu
