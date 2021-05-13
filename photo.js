@@ -140,16 +140,45 @@ window.addEventListener('click', function (e) {
 
 //likes
 
-let btn = document.getElementById("btn");
-                 
-let disp = document.getElementById("display");
+class Photographer {
+  constructor(name, id, city, country, tags, tagline, price, portrait, media) {
+    this.name = name,
+    this.id = id,
+    this.city = city,
+    this.country = country,
+    this.tags = tags,
+    this.tagline = tagline,
+    this.price = price,
+    this.portrait = portrait,
+    this.media = media
+  }
+}
 
-btn.addEventListener('click', () => {
-display.value = parseInt(input.likes) + 1;
-});
+const totalLikesNb = document.querySelector('.infos__likes__number')
+
+function totalLikes(media) {
+  let number = 0;
+  for (let i = 0; i < media.length; i++) {
+    number += media[i].likes;
+  }
+  totalLikesNb.innerHTML = number;
+  return totalLikesNb;
+}
+totalLikes(totalLikesNb);
+console.log(totalLikes());
+
+
+
+// let btn = document.getElementById("btn");
+                 
+// let disp = document.getElementById("display");
+
+// btn.addEventListener('click', () => {
+// display.value = parseInt(input.likes) + 1;
+// });
 // Likes count
 
-var count = 0;
+// var count = 0;
         //  var btn = document.getElementById("btn");
                  
         //  var disp = document.getElementById("display");
@@ -161,9 +190,56 @@ var count = 0;
 
         
 // sort by date/title/popularité
-// let popularity = document.getElementById('dropdown__option1');
-// let date = document.getElementById('dropdown__option2');
-// let titre = document.getElementById('dropdown__option3');
+let popularity = document.getElementById('option1');
+let date = document.getElementById('option2');
+let titre = document.getElementById('option3');
+
+popularity.addEventListener('click', () => popularitySort(photographer.media))
+popularity.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    popularitySort(photographer.media)
+  }
+})
+function popularitySort(media) {
+  function tri(a,b) {
+    return ((a.likes < b.likes) ? 1 : (a.likes == b.likes) ? 0 : -1)
+  }
+  media.sort(tri)
+  
+}
+date.addEventListener('click', () => dateSort(photographer.media))
+date.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    dateSort(photographer.media)
+  }
+})
+function dateSort(media) {
+  function tri(a,b) {
+    let dateA = new Date(a.date)
+    let dateB = new Date(b.date)
+    return ((dateA < dateB) ? 1 : (dateA == dateB) ? 0 : -1)
+  }
+  media.sort(tri)
+  
+}
+titre.addEventListener('click', () => titleSort(photographer.media))
+titre.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    titleSort(photographer.media)
+  }
+})
+function titleSort(media) {
+  function tri(a,b) {
+    let titleA = a.alt.split(' ').join('')
+    a = titleA.toLowerCase()
+    let titleB = b.alt.split(' ').join('')
+    b = titleB.toLowerCase()
+    return (a < b) ? -1 : 1
+  }
+  media.sort(tri)
+  
+}
+
 
 // popularity.addEventListener('click', () => popularitySort(photographerId.media));
 // popularity.addEventListener('keypress', (e) => {
@@ -189,3 +265,28 @@ var count = 0;
 // Array.sort(function allDates(a, b) {
 //   return a.date - b.date;
 // })
+
+// export function mediaListSort(target) {
+//   //target is the selected criterion element
+//   switch (target.innerText) {
+//     case "Popularité":
+//       Media.sort((a, b) => b.likes - a.likes); // sort from the more liked to the less liked
+//       break;
+//     case "Date":
+//       Media.sort((a, b) => new Date(b.date) - new Date(a.date)); //sort form newest to oldest
+//       break;
+//     case "Titre":
+//       Media.sort(function (a, b) {
+//         // sort form 1st to last in alphabetical order
+//         if (a.title.toLowerCase() < b.title.toLowerCase()) {
+//           return -1;
+//         }
+//         if (a.title.toLowerCase() > b.title.toLowerCase()) {
+//           return 1;
+//         } else {
+//           return 0;
+//         }
+//       });
+//       break;
+//   }
+// }
