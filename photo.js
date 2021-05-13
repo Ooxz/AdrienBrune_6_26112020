@@ -60,6 +60,8 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
       
       
     })
+    totalLikes(medias);
+    likeEventListener();
   } 
 })
 .catch(error => console.error(error.message));
@@ -154,18 +156,21 @@ class Photographer {
   }
 }
 
-const totalLikesNb = document.querySelector('.infos__likes__number')
 
-function totalLikes(media) {
+/**
+ * 
+ * @param {Array} medias 
+ */
+function totalLikes(medias) {
+  const totalLikesNb = document.querySelector('.infos__likes__number')
   let number = 0;
-  for (let i = 0; i < media.length; i++) {
-    number += media[i].likes;
+  for (let i = 0; i < medias.length; i++) {
+    number += medias[i].likes;
   }
   totalLikesNb.innerHTML = number;
-  return totalLikesNb;
 }
-totalLikes(totalLikesNb);
-console.log(totalLikes());
+// totalLikes(totalLikesNb);
+// console.log(totalLikes());
 
 
 
@@ -177,16 +182,23 @@ console.log(totalLikes());
 // display.value = parseInt(input.likes) + 1;
 // });
 // Likes count
-
-// var count = 0;
-        //  var btn = document.getElementById("btn");
-                 
-        //  var disp = document.getElementById("display");
-  
-        // btn.onclick = function () {
-        //     count++;
-        //     disp.innerHTML = count;
-        // }
+function likeEventListener (){
+  let likesElts = document.querySelectorAll(".pic_like");
+  let likesEltsArray = Array.from(likesElts);
+  likesEltsArray.forEach(likeBtn =>{
+    likeBtn.onclick = function (e) {
+      let parentElt =  e.target.parentNode; // on recup le parent
+      let likeElt = parentElt.querySelector('.photo__likes');
+      console.log(likeElt)
+      let likes = parseInt(likeElt.textContent);
+      likeElt.textContent = ++likes;
+      const totalLikesNb = document.querySelector('.infos__likes__number');
+      let totalLikes = parseInt(totalLikesNb.textContent);
+      totalLikesNb.textContent = ++totalLikes;
+  }
+  })
+}
+        
 
         
 // sort by date/title/popularité

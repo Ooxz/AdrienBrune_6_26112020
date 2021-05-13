@@ -19,7 +19,7 @@ export default class PhotographerImage {
               <p class="photo__title">${this.title}</p>
               <p class="photo__price">${this.price}€</p>
               <p><span id="display" class="photo__likes" >${this.likes}</span></p>
-              <button id="btn" class="fontIcon" value="0">❤</button>
+              <span class="pic_like fontIcon" value="0">❤</span>
               </div>
               </a>
               </div>
