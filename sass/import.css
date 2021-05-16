@@ -886,4 +886,31 @@ ul {
   color: #901C1C;
   white-space: nowrap;
 }
+
+.infos__likes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  color: black;
+  font-weight: 500;
+  background-color: #DB8876;
+  width: 376px;
+  height: 89px;
+  font-size: 24px;
+  margin-left: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.infos__likes__number {
+  margin-left: 20px;
+}
+
+.infos__likes__icon {
+  margin-left: 20px;
+}
 /*# sourceMappingURL=import.css.map */
