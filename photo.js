@@ -1,14 +1,22 @@
 import Media from './media.class.js';
-
-// DOM Elements
+/**
+ * 
+ * DOM elements
+ */
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 
-// launch modal event
+/**
+ * 
+ * launch modal event
+ */
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-// launch modal form
+/**
+ * 
+ * launch modal form
+ */
 function launchModal() {
   modalbg.style.display = "block";
 }
@@ -31,6 +39,10 @@ document.getElementById('closeButton').addEventListener('click', (event) => {
             document.getElementById("clickCount").innerHTML = clicks;
         }
 
+        /**
+ * 
+ * @fetch
+ */
 
 fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
 .then(response => response.json())
@@ -114,7 +126,10 @@ function displayTags(tags){
 
 
 
-// dropdown menu
+/**
+ * 
+ * dropdown menu
+ */
 
 for (const dropdown of document.querySelectorAll('.dropdown__main')) {
   dropdown.addEventListener('click', function () {
@@ -140,7 +155,6 @@ window.addEventListener('click', function (e) {
   }
 })
 
-//likes
 
 class Photographer {
   constructor(name, id, city, country, tags, tagline, price, portrait, media) {
