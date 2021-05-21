@@ -8,6 +8,7 @@ html, body {
   margin: 0;
   max-width: 1340px;
   font-family: 'DM Sans', sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -76,6 +77,8 @@ ul {
   outline: none;
   background-color: #DB8876;
   cursor: pointer;
+  color: black;
+  text-align: center;
   height: 30px;
   width: 182px;
   border-radius: 5px;
