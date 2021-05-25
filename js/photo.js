@@ -6,7 +6,8 @@ import Media from './media.class.js';
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-
+let mediasFromData = [];
+let photographer = null;
 /**
  * 
  * launch modal event
@@ -39,8 +40,10 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
     const idPhotographer = getParamFromURL('id');
     console.log(idPhotographer);
     if (idPhotographer !== undefined) {
-      const photographer = getPhotographerFromData(data, idPhotographer);
+      photographer = getPhotographerFromData(data, idPhotographer);
       const medias = getMediaFromData(data, photographer.id);
+      mediasFromData = [...medias];
+      console.log("media from data", mediasFromData);
       displayContent(photographer, medias);
       totalLikes(medias);
       likeEventListener();
@@ -53,9 +56,9 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
  * dropdown menu
  */
 
-  document.querySelector('.dropdown__main').addEventListener('click', function () {
-    this.querySelector('.dropdown__select').classList.toggle('open')
-  })
+document.querySelector('.dropdown__main').addEventListener('click', function () {
+  this.querySelector('.dropdown__select').classList.toggle('open')
+})
 
 
 for (const option of document.querySelectorAll('.dropdown__option')) {
@@ -65,6 +68,11 @@ for (const option of document.querySelectorAll('.dropdown__option')) {
       this.classList.add('selected')
       selectedValue = this.getAttribute("data-value");
       alert(selectedValue);
+      // Filter
+      let orderedMedias = filterMedias(selectedValue);
+      displayContent(photographer, orderedMedias);
+      totalLikes(orderedMedias);
+      likeEventListener();
       this.closest('.dropdown__select').querySelector('.dropdown__trigger span').textContent = this.textContent
     }
   })
@@ -77,7 +85,7 @@ window.addEventListener('click', function (e) {
     }
   }
 })
-
+/*
 // sort by date/title/popularité
 let popularity = document.getElementById('option1');
 let date = document.getElementById('option2');
@@ -89,12 +97,13 @@ popularity.addEventListener('keydown', (e) => {
     popularitySort(photographer.media)
   }
 })
+*/
 
 /*
  * FUNCTIONS
  */
 
-function displayContent(photographer, medias){
+function displayContent(photographer, medias) {
   const photographerFolder = getPhotographerFolder(photographer.name);
   document.getElementById("modal__name").textContent = `Contactez-moi ${photographer.name}`;
   document.getElementById("photographer__name").textContent = photographer.name;
@@ -104,7 +113,9 @@ function displayContent(photographer, medias){
   document.getElementById("photographer__tags").textContent = `${displayTags(photographer.tags)}`;
   var test = document.createElement("IMG");
   test.setAttribute("src", `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${photographer.portrait}`);
+  document.getElementById("photographer__photo").innerHTML = '';
   document.getElementById("photographer__photo").appendChild(test);
+  document.getElementById('photographers__photos').innerHTML = '';
   medias.forEach(item => {
     let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
     let media = new Media(item, baseUrl)
@@ -116,7 +127,7 @@ function displayContent(photographer, medias){
  * 
  * launch modal form
  */
- function launchModal() {
+function launchModal() {
   modalbg.style.display = "block";
 }
 
@@ -124,7 +135,7 @@ function displayContent(photographer, medias){
  * 
  * @param {Array} medias 
  */
- function totalLikes(medias) {
+function totalLikes(medias) {
   const totalLikesNb = document.querySelector('.infos__likes__number')
   let number = 0;
   for (let i = 0; i < medias.length; i++) {
@@ -144,6 +155,7 @@ function likeEventListener() {
       console.log(likeElt)
       let likes = parseInt(likeElt.textContent);
       likeElt.textContent = ++likes;
+      // recup data et mettre a jour media from data
       const totalLikesNb = document.querySelector('.infos__likes__number');
       let totalLikes = parseInt(totalLikesNb.textContent);
       totalLikesNb.textContent = ++totalLikes;
@@ -197,44 +209,54 @@ function displayTags(tags) {
   return stringTemplate
 }
 
-function popularitySort(media) {
-  function tri(a, b) {
-    return ((a.likes < b.likes) ? 1 : (a.likes == b.likes) ? 0 : -1)
+function filterMedias(selectedValue) {
+  let orderedMedias = null;
+  switch (selectedValue) {
+    case "popularity":
+      function compareByPopularity(a, b){
+        let likesA = a.likes;
+        let likesB = b.likes;
+        let comparison = 0;
+        if (likesA < likesB) {
+          comparison = 1;
+        } else if (likesA > likesB) {
+          comparison = -1;
+        }
+        return comparison;
+      }
+      orderedMedias = mediasFromData.sort(compareByPopularity);
+      break;
+    case "date":
+      function compareByDate(a, b){
+        let dateA = new Date(a.date).getTime();
+        let dateB = new Date(b.date).getTime();
+        let comparison = 0;
+        if (dateA < dateB) {
+          comparison = 1;
+        } else if (dateA > dateB) {
+          comparison = -1;
+        }
+        return comparison;
+      }
+      orderedMedias = mediasFromData.sort(compareByDate);
+      break;
+    case "title":
+      function compareByTitle(a, b){
+        let titleA = a.title;
+        a = titleA.toLowerCase()
+        let titleB = b.title;
+        b = titleB.toLowerCase()
+        let comparison = 0;
+        if (titleA > titleB) {
+          comparison = 1;
+        } else if (titleA < titleB) {
+          comparison = -1;
+        }
+        return comparison;
+      }
+      orderedMedias = mediasFromData.sort(compareByTitle);
+      break;
   }
-  media.sort(tri)
-
+  return orderedMedias;
 }
-date.addEventListener('click', () => dateSort(photographer.media))
-date.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    dateSort(photographer.media)
-  }
-})
-function dateSort(media) {
-  function tri(a, b) {
-    let dateA = new Date(a.date)
-    let dateB = new Date(b.date)
-    return ((dateA < dateB) ? 1 : (dateA == dateB) ? 0 : -1)
-  }
-  media.sort(tri)
-
-}
-titre.addEventListener('click', () => titleSort(photographer.media))
-titre.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    titleSort(photographer.media)
-  }
-})
-function titleSort(media) {
-  function tri(a, b) {
-    let titleA = a.alt.split(' ').join('')
-    a = titleA.toLowerCase()
-    let titleB = b.alt.split(' ').join('')
-    b = titleB.toLowerCase()
-    return (a < b) ? -1 : 1
-  }
-  media.sort(tri)
-
-}
-
 

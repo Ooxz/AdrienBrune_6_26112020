@@ -19,7 +19,7 @@ export default class PhotographerVideo {
               <p class="photo__title">${this.title}</p>
               <p class="photo__price">${this.price}€</p>
               <p><span id="display" class="photo__likes" >${this.likes}</span></p>
-              <span class="pic_like fontIcon" value="0">❤</span>
+              <span class="pic_like fontIcon" data-id="${this.id}" value="0">❤</span>
               </div>
               </a>
               </div>
