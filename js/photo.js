@@ -67,12 +67,8 @@ for (const option of document.querySelectorAll('.dropdown__option')) {
       this.parentNode.querySelector('.dropdown__option.selected').classList.remove('selected')
       this.classList.add('selected')
       selectedValue = this.getAttribute("data-value");
-      alert(selectedValue);
       // Filter
-      let orderedMedias = filterMedias(selectedValue);
-      displayContent(photographer, orderedMedias);
-      totalLikes(orderedMedias);
-      likeEventListener();
+      refreshDom();
       this.closest('.dropdown__select').querySelector('.dropdown__trigger span').textContent = this.textContent
     }
   })
@@ -85,23 +81,19 @@ window.addEventListener('click', function (e) {
     }
   }
 })
-/*
-// sort by date/title/popularité
-let popularity = document.getElementById('option1');
-let date = document.getElementById('option2');
-let titre = document.getElementById('option3');
 
-popularity.addEventListener('click', () => popularitySort(photographer.media))
-popularity.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    popularitySort(photographer.media)
-  }
-})
-*/
+
 
 /*
  * FUNCTIONS
  */
+
+function refreshDom() {
+  let orderedMedias = filterMedias(selectedValue);
+  displayContent(photographer, orderedMedias);
+  totalLikes(orderedMedias);
+  likeEventListener();
+}
 
 function displayContent(photographer, medias) {
   const photographerFolder = getPhotographerFolder(photographer.name);
@@ -150,15 +142,10 @@ function likeEventListener() {
   let likesEltsArray = Array.from(likesElts);
   likesEltsArray.forEach(likeBtn => {
     likeBtn.onclick = function (e) {
-      let parentElt = e.target.parentNode; // on recup le parent
-      let likeElt = parentElt.querySelector('.photo__likes');
-      console.log(likeElt)
-      let likes = parseInt(likeElt.textContent);
-      likeElt.textContent = ++likes;
-      // recup data et mettre a jour media from data
-      const totalLikesNb = document.querySelector('.infos__likes__number');
-      let totalLikes = parseInt(totalLikesNb.textContent);
-      totalLikesNb.textContent = ++totalLikes;
+      let picId = likeBtn.getAttribute("data-id"); // on récupère l'id de la photo
+      let pic = mediasFromData.find(media => media.id == picId); // on récup l'image
+      pic.likes++;
+      refreshDom();
     }
   })
 }
