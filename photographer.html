@@ -112,6 +112,24 @@
         <p class="infos__price" aria-label="tarif photographe"></p>
       </footer>
     </main>
+
+     <!-- lightbox -->
+     <div class="lightbox-background">
+      <div class="lightbox-content" aria-modal="true" role="dialog" id="lightbox-content" aria-label="lightbox, images en gros plan" tabindex="-1">
+        <div class="lightbox" id="lightbox">
+          <button class="lightbox__prev" id="left" type="button" aria-labelledby="prev" tabindex="0"></button>
+          <p class="sr-only" id="prev" aria-hidden="true">image précédente</p>
+          <div class="divLightbox">
+            <ul class="lightbox__container"></ul>
+            <button class="lightbox__close" id="closeLightbox" type="button" aria-labelledby="close-lightbox" tabindex="0"></button>
+            <p class="sr-only" id="close-lightbox" aria-hidden="true">fermer la lightbox</p>
+            </div>
+          <button class="lightbox__next" id="right" type="button" aria-labelledby="next" tabindex="0"></button>
+          <p class="sr-only" id="next" aria-hidden="true">image suivante</p>
+        </div>
+      </div>
+    </div>
+    
   </div>
   <script src="./js/photo.js" type="module"></script>
 </body>

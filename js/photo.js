@@ -8,16 +8,31 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 let mediasFromData = [];
 let photographer = null;
+const lightboxbg = document.querySelector(".lightbox-background");
+const lightboxBtn = document.querySelectorAll(".photographs__pictures");
 /**
  * 
  * launch modal event
  */
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
+/**
+ * 
+ * launch lightbox event
+ */
+
+lightboxBtn.forEach((img) => img.addEventListener("click",  launchLightbox));
+
 //fonctionnalitées de la croix pour fermer le formulaire
 document.getElementById('closeButton').addEventListener('click', (event) => {
   event.preventDefault();
   modalbg.style.display = 'none';
+});
+
+//fonctionnalitées de la croix pour fermer la lightbox
+document.getElementById('closeLightbox').addEventListener('click', (event) => {
+  event.preventDefault();
+  lightboxbg.style.display = 'none';
 });
 
 //clicking outside of the modalbg will close it
@@ -27,11 +42,18 @@ window.onclick = function (event) {
   }
 }
 
+//clicking outside of the lightboxbg will close it
+window.onclick = function (event) {
+  if (event.target == lightboxbg) {
+    lightboxbg.style.display = "none";
+  }
+}
+
 let selectedValue = "";
 
 /**
 * 
-* @fetch
+* fetch
 */
 
 fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
@@ -121,6 +143,15 @@ function displayContent(photographer, medias) {
  */
 function launchModal() {
   modalbg.style.display = "block";
+}
+
+/**
+ * 
+ * launch lightbox
+ */
+function launchLightbox() {
+  lightboxbg.style.display = "block";
+  console.log("lightbox");
 }
 
 /**
@@ -243,7 +274,12 @@ function filterMedias(selectedValue) {
       }
       orderedMedias = mediasFromData.sort(compareByTitle);
       break;
+
+      default:
+        orderedMedias = mediasFromData;
   }
+  
   return orderedMedias;
 }
+
 
