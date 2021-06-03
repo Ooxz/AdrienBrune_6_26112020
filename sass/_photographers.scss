@@ -444,4 +444,113 @@
     margin-left: 20px;
   }
 
-  
+  .lightbox-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    background-color: white;
+    z-index: 10;
+    overflow: auto;
+    animation: lightbox2In 0.5s;
+    justify-content: center;
+  }
+  .lightbox-content {
+    margin: 1rem auto;
+    max-width: 1253px;
+    max-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    & button {
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .lightbox {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    &__close {
+      width: 2rem;
+      height: 2rem;
+      background: url(../FishEye_Photos/times-solid.svg) center center / 100% 100% no-repeat;
+      position: absolute;
+      top: 1rem;
+      right: -3.5rem;
+      border: none;
+      z-index: 12;
+    }
+    & button {
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .divLightbox {
+    position: relative;
+  }
+  .lightbox__next,
+  .lightbox__prev {
+    background: url(../FishEye_Photos/chevron-left-solid.svg) center center / 1.5rem 2.4rem no-repeat;
+    width: 1.2rem;
+    height: 5rem;
+    align-self: center;
+    position: relative;
+    top: -2rem;
+    z-index: 11;
+    margin: 0 1.5rem;
+    padding: 0 1rem;
+  }
+  .lightbox__next {
+    left: auto;
+    right: 0;
+    transform: rotate(180deg);
+  }
+  .lifhtbox__container li img {
+    animation: lightbox2In 1s;
+  }
+  .lightboxItem {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .titleLightbox {
+    color: #D3573C;
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: left;
+  }
+  .imageLightbox {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  .videoLightbox {
+    max-width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #playpause {
+      font-size:1.5rem;
+      font-weight:bold;
+      color: #D3573C;
+      background:white;
+      padding: 0 1rem;
+  }

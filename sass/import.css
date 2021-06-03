@@ -916,4 +916,163 @@ ul {
 .infos__likes__icon {
   margin-left: 20px;
 }
+
+.lightbox-background {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  background-color: white;
+  z-index: 10;
+  overflow: auto;
+  -webkit-animation: lightbox2In 0.5s;
+          animation: lightbox2In 0.5s;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.lightbox-content {
+  margin: 1rem auto;
+  max-width: 1253px;
+  max-height: 100vh;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.lightbox-content button {
+  border: none;
+  cursor: pointer;
+}
+
+.lightbox {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr auto;
+      grid-template-columns: auto 1fr auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  padding: 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.lightbox__close {
+  width: 2rem;
+  height: 2rem;
+  background: url(../FishEye_Photos/times-solid.svg) center center/100% 100% no-repeat;
+  position: absolute;
+  top: 1rem;
+  right: -3.5rem;
+  border: none;
+  z-index: 12;
+}
+
+.lightbox button {
+  border: none;
+  cursor: pointer;
+}
+
+.divLightbox {
+  position: relative;
+}
+
+.lightbox__next,
+.lightbox__prev {
+  background: url(../FishEye_Photos/chevron-left-solid.svg) center center/1.5rem 2.4rem no-repeat;
+  width: 1.2rem;
+  height: 5rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  position: relative;
+  top: -2rem;
+  z-index: 11;
+  margin: 0 1.5rem;
+  padding: 0 1rem;
+}
+
+.lightbox__next {
+  left: auto;
+  right: 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.lifhtbox__container li img {
+  -webkit-animation: lightbox2In 1s;
+          animation: lightbox2In 1s;
+}
+
+.lightboxItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.titleLightbox {
+  color: #D3573C;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.imageLightbox {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.videoLightbox {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#playpause {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #D3573C;
+  background: white;
+  padding: 0 1rem;
+}
 /*# sourceMappingURL=import.css.map */

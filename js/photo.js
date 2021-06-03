@@ -9,19 +9,14 @@ const formData = document.querySelectorAll(".formData");
 let mediasFromData = [];
 let photographer = null;
 const lightboxbg = document.querySelector(".lightbox-background");
-const lightboxBtn = document.querySelectorAll(".photographs__pictures");
+
 /**
  * 
  * launch modal event
  */
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-/**
- * 
- * launch lightbox event
- */
 
-lightboxBtn.forEach((img) => img.addEventListener("click",  launchLightbox));
 
 //fonctionnalitées de la croix pour fermer le formulaire
 document.getElementById('closeButton').addEventListener('click', (event) => {
@@ -69,6 +64,7 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
       displayContent(photographer, medias);
       totalLikes(medias);
       likeEventListener();
+      imageLightboxListener();
     }
   })
   .catch(error => console.error(error.message));
@@ -181,6 +177,11 @@ function likeEventListener() {
   })
 }
 
+function imageLightboxListener() {
+  const lightboxBtn = document.querySelectorAll(".photographs__pictures");
+  lightboxBtn.forEach((image) => image.addEventListener("click", launchLightbox));
+}
+
 function getParamFromURL(param) {
   // source : https://www.sitepoint.com/get-url-parameters-with-javascript/
   const queryString = window.location.search;
@@ -231,7 +232,7 @@ function filterMedias(selectedValue) {
   let orderedMedias = null;
   switch (selectedValue) {
     case "popularity":
-      function compareByPopularity(a, b){
+      function compareByPopularity(a, b) {
         let likesA = a.likes;
         let likesB = b.likes;
         let comparison = 0;
@@ -245,7 +246,7 @@ function filterMedias(selectedValue) {
       orderedMedias = mediasFromData.sort(compareByPopularity);
       break;
     case "date":
-      function compareByDate(a, b){
+      function compareByDate(a, b) {
         let dateA = new Date(a.date).getTime();
         let dateB = new Date(b.date).getTime();
         let comparison = 0;
@@ -259,7 +260,7 @@ function filterMedias(selectedValue) {
       orderedMedias = mediasFromData.sort(compareByDate);
       break;
     case "title":
-      function compareByTitle(a, b){
+      function compareByTitle(a, b) {
         let titleA = a.title;
         a = titleA.toLowerCase()
         let titleB = b.title;
@@ -275,10 +276,10 @@ function filterMedias(selectedValue) {
       orderedMedias = mediasFromData.sort(compareByTitle);
       break;
 
-      default:
-        orderedMedias = mediasFromData;
+    default:
+      orderedMedias = mediasFromData;
   }
-  
+
   return orderedMedias;
 }
 
