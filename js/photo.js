@@ -9,6 +9,7 @@ const formData = document.querySelectorAll(".formData");
 let mediasFromData = [];
 let photographer = null;
 const lightboxbg = document.querySelector(".lightbox-background");
+const lightboxCnt = document.querySelector(".lightbox-content");
 
 /**
  * 
@@ -147,6 +148,7 @@ function launchModal() {
  */
 function launchLightbox() {
   lightboxbg.style.display = "block";
+  lightboxCnt.style.display = "block";
   console.log("lightbox");
 }
 

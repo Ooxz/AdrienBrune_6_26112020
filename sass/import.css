@@ -5,7 +5,7 @@
 }
 
 html, body {
-  margin: 0;
+  margin: auto;
   max-width: 1340px;
   font-family: 'DM Sans', sans-serif;
   scroll-behavior: smooth;
@@ -891,22 +891,23 @@ ul {
 }
 
 .infos__likes {
+  position: fixed;
+  bottom: 0;
+  right: 2.5rem;
+  background-color: #DB8876;
+  font-size: 1.3rem;
+  font-weight: 600;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  color: black;
-  font-weight: 500;
-  background-color: #DB8876;
-  width: 376px;
-  height: 89px;
-  font-size: 24px;
-  margin-left: auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1.4rem 2.5rem 1.2rem;
+  width: 350px;
+  border-radius: 0.5rem 0.5rem 0 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .infos__likes__number {
