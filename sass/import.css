@@ -56,7 +56,7 @@ ul {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-left: 50px;
+  margin-left: 5px;
 }
 
 .header__navlink {
@@ -152,9 +152,9 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -221,9 +221,9 @@ ul {
 
 .card__tag {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   color: #901C1C;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .card__tag span {
@@ -639,9 +639,10 @@ ul {
 }
 
 .mod-title {
-  font-size: 64px;
+  font-size: 3rem;
   font-weight: 400;
   margin-left: 35px;
+  white-space: inherit;
 }
 
 #subject {

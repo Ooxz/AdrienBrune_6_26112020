@@ -15,7 +15,7 @@
     &__links{
       display: flex;
       flex-wrap: wrap; 
-      margin-left: 50px;
+      margin-left: 5px;
     }
     &__navlink{
       display: flex;
@@ -90,7 +90,7 @@
     .card {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       margin-top: 50px;
       width: 20%;
@@ -137,9 +137,9 @@
       }
       &__tag{
         font-size: 12px;
-        font-weight: 400;
+        font-weight: 500;
         color: #901C1C;
-        margin-top: 5px;
+        margin-top: 10px;
        span{
         border: solid 0.1rem #c4c4c4;
         border-radius: 1.5rem;
