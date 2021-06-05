@@ -6,7 +6,7 @@
 
 html, body {
   margin: auto;
-  max-width: 1340px;
+  max-width: 1440px;
   font-family: 'DM Sans', sans-serif;
   scroll-behavior: smooth;
 }
@@ -19,45 +19,65 @@ ul {
   list-style-type: none;
 }
 
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 50px;
+}
+
 .header__nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
 }
 
 .header__logo {
-  height: 39px;
-  margin-left: 150px;
-  margin-top: 20px;
+  max-width: 12.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+      align-self: start;
 }
 
 .header__links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: 100px;
-  height: 49px;
-  width: 553px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-left: 50px;
 }
 
 .header__navlink {
-  margin-right: 20px;
-  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: #901c1c;
   font-weight: 500;
-  color: #901C1C;
+  margin-left: 10px;
+  padding: 0.2rem 0.4rem;
+  border: solid 0.1rem #c4c4c4;
+  border-radius: 1.5rem;
+}
+
+.header__navlink:hover, .header__navlink:focus {
+  outline: none;
+  color: white;
+  background-color: #901c1c;
+  border: solid 0.1rem #901c1c;
 }
 
 #scroll__div {
@@ -85,13 +105,16 @@ ul {
   font-size: 18px;
 }
 
+.main {
+  position: relative;
+}
+
 .section1__title {
-  float: right;
-  color: #901C1C;
-  font-size: 36px;
-  font-weight: 400;
-  margin-top: -55px;
-  margin-right: 70px;
+  position: absolute;
+  top: -3rem;
+  right: 2rem;
+  font-size: 2.2rem;
+  color: #901c1c;
 }
 
 #photographs {
@@ -201,6 +224,20 @@ ul {
   font-weight: 400;
   color: #901C1C;
   margin-top: 5px;
+}
+
+.card__tag span {
+  border: solid 0.1rem #c4c4c4;
+  border-radius: 1.5rem;
+  padding: 2px 2px 2px 2px;
+  cursor: pointer;
+}
+
+.card__tag span:hover, .card__tag span:focus {
+  outline: none;
+  color: white;
+  background-color: #901c1c;
+  border: solid 0.1rem #901c1c;
 }
 
 @media (max-width: 800px) {
@@ -356,7 +393,7 @@ ul {
   }
   .header__navlink {
     margin-right: 20px;
-    font-size: 12px;
+    font-size: 24px;
     font-weight: 500;
     color: #901C1C;
   }

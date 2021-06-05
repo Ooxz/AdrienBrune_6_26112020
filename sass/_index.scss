@@ -1,28 +1,37 @@
 .header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
     &__nav{
         display: flex;
-        flex-direction: row;
         align-items: center;
-        justify-content: flex-start;
     }
     &__logo{
-        height: 39px;
-        margin-left: 150px;
-        margin-top: 20px;
+      max-width: 12.5rem;
+      display: flex;
+      align-self: start;
     }
     &__links{
-        display: flex;
-        align-items: center;
-        margin-left: 100px;
-        height: 49px;
-        width: 553px;
-        
+      display: flex;
+      flex-wrap: wrap; 
+      margin-left: 50px;
     }
     &__navlink{
-        margin-right: 20px;
-        font-size: 12px;
-        font-weight: 500;
-        color: #901C1C;
+      display: flex;
+      flex-wrap: wrap;
+      color: #901c1c;
+      font-weight: 500;
+      margin-left: 10px;
+      padding: 0.2rem 0.4rem;
+      border: solid 0.1rem #c4c4c4;
+      border-radius: 1.5rem;
+      &:hover, &:focus {
+        outline: none;
+        color: white;
+        background-color: #901c1c;
+        border: solid 0.1rem #901c1c;
+      }
     }
 }
 #scroll__div{
@@ -48,15 +57,16 @@
     border-radius: 5px;
     font-size: 18px;
   }
-
+.main{
+  position: relative;
+}
   .section1{
     &__title{
-      float: right;
-      color: #901C1C;
-      font-size: 36px;
-      font-weight: 400;
-      margin-top: -55px;
-      margin-right: 70px;
+      position: absolute;
+      top: -3rem;
+      right: 2rem;
+      font-size: 2.2rem;
+      color: #901c1c;
     }
   }
 
@@ -130,6 +140,18 @@
         font-weight: 400;
         color: #901C1C;
         margin-top: 5px;
+       span{
+        border: solid 0.1rem #c4c4c4;
+        border-radius: 1.5rem;
+        padding: 2px 2px 2px 2px;
+        cursor: pointer;
+        &:hover, &:focus {
+          outline: none;
+          color: white;
+          background-color: #901c1c;
+          border: solid 0.1rem #901c1c;
+        }
+       }
       }
   }
 
@@ -249,7 +271,7 @@
   }
   &__navlink{
       margin-right: 20px;
-      font-size: 12px;
+      font-size: 24px;
       font-weight: 500;
       color: #901C1C;
   }
