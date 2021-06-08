@@ -57,7 +57,7 @@ ul {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-left: 5px;
+  margin-left: 50px;
 }
 
 .header__navlink {
@@ -130,11 +130,10 @@ ul {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-right: 150px;
 }
 
 #photographs a {
-  width: 12%;
+  width: 11%;
 }
 
 .main__frame {

@@ -16,7 +16,7 @@
     &__links{
       display: flex;
       flex-wrap: wrap; 
-      margin-left: 5px;
+      margin-left: 50px;
     }
     &__navlink{
       display: flex;
@@ -75,11 +75,9 @@
   #photographs{
       display: flex; 
       flex-wrap: wrap;
-      margin-right: 150px;
-      
       
       a{
-        width: 12%;
+        width: 11%;
       }
   }
 

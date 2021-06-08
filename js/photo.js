@@ -158,11 +158,13 @@ function launchLightbox() {
  */
 function totalLikes(medias) {
   const totalLikesNb = document.querySelector('.infos__likes__number')
+  const photographerPrice = document.querySelector('.infos__price')
   let number = 0;
   for (let i = 0; i < medias.length; i++) {
     number += medias[i].likes;
   }
   totalLikesNb.innerHTML = number;
+  photographerPrice.innerHTML = photographer.price;
 }
 
 // Likes count

@@ -15,6 +15,12 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
       let card = generatedCard(photographer);
       document.getElementById('photographs').innerHTML += card;
     })
+    let tagElements = Array.from(document.getElementsByClassName("tag"));
+    tagElements.forEach(elt => {
+      elt.addEventListener("click", (e) => {
+        alert(e.target.textContent);
+      }) 
+    })
   })
   .catch(function () {
     this.dataError = true;
@@ -53,7 +59,7 @@ function generatedCard(item) {
 function displayTags(tags) {
   let stringTemplate = ``;
   tags.forEach(tag => {
-    stringTemplate += `<a><span>#${tag}</span></a>`
+    stringTemplate += `<a><span class="tag">#${tag}</span></a>`
   });
   return stringTemplate
 }
