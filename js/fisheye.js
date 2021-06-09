@@ -19,6 +19,9 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
     tagElements.forEach(elt => {
       elt.addEventListener("click", (e) => {
         alert(e.target.textContent);
+        e.preventDefault();
+        e.target.textContent(`#${tag}`);
+        e.target.remove('#');
       }) 
     })
   })
