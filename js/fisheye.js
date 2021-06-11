@@ -32,7 +32,7 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
 //scroll 10 px down and the div shows
 
 function scrollFunction() {
-  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
     document.getElementById("scroll__div").style.display = "flex";
   } else {
     document.getElementById("scroll__div").style.display = "none";
