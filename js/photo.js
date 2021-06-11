@@ -163,8 +163,8 @@ function totalLikes(medias) {
   for (let i = 0; i < medias.length; i++) {
     number += medias[i].likes;
   }
-  totalLikesNb.innerHTML = number;
-  photographerPrice.innerHTML = photographer.price;
+  totalLikesNb.innerHTML = `${number} ❤`;
+  photographerPrice.innerHTML = `${photographer.price} € / jour`;
 }
 
 // Likes count

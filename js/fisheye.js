@@ -33,9 +33,9 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
 
 function scrollFunction() {
   if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-    document.getElementById("scroll__div").style.top = "0";
+    document.getElementById("scroll__div").style.display = "flex";
   } else {
-    document.getElementById("scroll__div").style.top = "-50px";
+    document.getElementById("scroll__div").style.display = "none";
   }
 }
 

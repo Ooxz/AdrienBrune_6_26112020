@@ -13,12 +13,13 @@
     </head>
 
     <body>
+        <div class="bloc_page">
+        <header>
         <div id="myData"></div>
-        <div id="scroll__div">
-        <a href="#myData" id="scroll__topbtn">Passer au contenu</a>
+        <div id="scroll__div" class="contenu">
+        <a href="#myData" id="scroll__topbtn" class="contenu__link">Passer au contenu</a>
     </div>
-        <div class="container">
-            <header class="header">
+            <div class="header">
         <nav class="header__nav">
             <a href="index.html"><div id ="nav__label"><img class="header__logo" src="./FishEye_Photos/Sample_Photos/Logo/fisheye_logo.png" alt="logo fisheye" /></div></a>
             <ul class="header__links">
@@ -32,6 +33,7 @@
             <li><a class="header__navlink tag" id="evenements" href="#evenements" aria-label="tag évènements">#Évènement</a></li>
         </ul>
           </nav>
+            </div>
         </header>
         <main class="main">
             <section class="section1">
@@ -40,7 +42,7 @@
                 </div>
             </section>  
         </main>
-        </div>
+    </div>
         <script src="./js/fisheye.js"></script>
     </body>
 </html>
