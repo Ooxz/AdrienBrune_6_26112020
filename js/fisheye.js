@@ -28,6 +28,48 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
   .catch(function () {
     this.dataError = true;
   })
+// Affichage des photographes par tag // _________________________________________________________________
+
+const navTags = Array.from(document.getElementsByClassName("tag")) // tous les tags du nav
+// accessibilité; aria-current = false pour tous les tags
+navTags.forEach((tag) => {
+  tag.setAttribute('aria-current', 'false') 
+})
+// liste des différents tags
+const arrayTags = [
+  'portrait',
+  'art',
+  'mode',
+  'architecture',
+  'voyage',
+  'sport',
+  'animaux',
+  'evenements',
+]
+// Affichage des photographes par tag //
+function tagChanged(photographer) {
+  for (let tag of arrayTags) {
+    if (location.hash === `#${tag}`) {
+      // accessibilité; aria-current = page pour la 'page' affichée
+      navTags.forEach((tag) => {
+        tag.setAttribute('aria-current', 'false')
+      })
+      let targetTag = document.getElementById(`${tag}`)
+      targetTag.setAttribute('aria-current', 'page')
+      // affichage des photographes avec le bon tag et dissimulation des autres
+      for (let i = 0; i < photographer.length; i++) {
+        let article = document.getElementById(`article${photographer[i].id}`)
+        const arrayTagPhotographer = photographer[i].tags
+        const index = arrayTagPhotographer.indexOf(tag)
+        if ((index < 0)) {
+          article.style.display = 'none'
+        } else {
+          article.style.display = 'flex'
+        }
+      }
+    }
+  }
+}
 
 //scroll 10 px down and the div shows
 
@@ -56,6 +98,7 @@ function generatedCard(item) {
               </div>
               
               `
+              
   return createdCard;
 }
 
