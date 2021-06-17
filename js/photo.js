@@ -152,6 +152,12 @@ function launchLightbox() {
   lightboxCnt.style.display = "block";
   console.log("lightbox");
 }
+// image apparait au click
+function imageLightboxListener() {
+  const lightboxBtn = document.querySelectorAll(".photographs__pictures");
+  lightboxBtn.forEach((image) => image.addEventListener("click", launchLightbox));
+}
+
 
 /**
  * 
@@ -182,10 +188,7 @@ function likeEventListener() {
   })
 }
 
-function imageLightboxListener() {
-  const lightboxBtn = document.querySelectorAll(".photographs__pictures");
-  lightboxBtn.forEach((image) => image.addEventListener("click", launchLightbox));
-}
+
 
 function getParamFromURL(param) {
   // source : https://www.sitepoint.com/get-url-parameters-with-javascript/

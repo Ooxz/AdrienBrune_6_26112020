@@ -834,6 +834,13 @@ html {
      object-fit: cover;
 }
 
+.logoPlay {
+  position: absolute;
+  margin-top: 120px;
+  width: 5rem;
+  z-index: 3;
+}
+
 .photo__info {
   display: -webkit-box;
   display: -ms-flexbox;
