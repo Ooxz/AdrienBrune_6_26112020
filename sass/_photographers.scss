@@ -591,6 +591,11 @@ html{
     }
   }
   @media (max-width:1000px){
+    .sect{
+      &__name{
+        width: 350px;
+      }
+    }
     .sect2{
       &__header{
         display: none;
@@ -600,10 +605,118 @@ html{
       display: none;
     }
   }
+  @media (max-width:800px){
+    .content {
+      margin: 5% auto;
+      animation-name: modalopen;
+      animation-duration: var(--modal-duration);
+      background: #DB8876;
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+      color: #000000;
+      padding-top: 10px;
+      width: 350px;
+      height: 900px;
+    }
+    
+    .modal-body {
+      margin-left: 35px;
+      margin-top: 30px;
+    }
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      width: 42px;
+      height: 32px;
+      opacity: 1;
+      cursor: pointer;
+      transform: scale(0.7);
+    }
+    .close:before,
+    .close:after {
+      position: absolute;
+      left: 15px;
+      content: " ";
+      height: 42px;
+      width: 5px;
+      background-color: #fff;
+    }
+    .close:before {
+      transform: rotate(45deg);
+    }
+    .close:after {
+      transform: rotate(-45deg);
+    }
+    .btn-submit {
+      background: #901C1C;
+      display: block;
+      margin-top: 80px;
+      border-radius: 5px;
+      width: 170px;
+      height: 69px;
+      margin-left: 55px;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 12px 52px;
+      color: #FFFFFF;
+      cursor: pointer;
+      border: 0;
+    }
+  
+    .text-control {
+      width: 280px;
+      border-radius: 5px;
+      font-size: 50px;
+      height: 68px;
+      border: none;
+      outline: none;
+    }
+    #message{
+        height: 170px;
+    }
+    .formData[data-error]::after {
+      content: attr(data-error);
+      font-size: 0.4em;
+      color: #e54858;
+      display: block;
+      margin-top: 7px;
+      margin-bottom: 7px;
+      text-align: right;
+      line-height: 0.3;
+      opacity: 0;
+      transition: 0.3s;
+    }
+    .formData[data-error-visible="true"]::after {
+      opacity: 1;
+    }
+    .formData[data-error-visible="true"] .text-control {
+      border: 2px solid #e54858;
+    }
+    .mod-title{
+        font-size: 2rem;
+        font-weight: 400;
+        margin-left: 35px;
+    }
+    #subject{
+        width: 280px;
+        height: 170px;
+        font-size: 50px;
+        border: none;
+        outline: none;
+    }
+    .size{
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 46.87px;
+    }
+  }
   @media (max-width:600px){
     .sect{
       padding: 1rem 0.5rem;
       &__name{
+        width: 150px;
         font-size: 2rem;
       }
       &__city{

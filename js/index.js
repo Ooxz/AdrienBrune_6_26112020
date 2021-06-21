@@ -23,6 +23,16 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
         e.target.textContent(`#${tag}`);
         e.target.remove('#');
         document.getElementById('photographs').innerHTML += card;
+        for (let i = 0; i < photographers.length; i++) {
+          let article = document.getElementById(`article${photographers[i].id}`)
+          const arrayTagPhotographer = photographers[i].tags
+          const index = arrayTagPhotographer.indexOf(tag)
+          if ((index < 0)) {
+            article.style.display = 'none'
+          } else {
+            article.style.display = 'flex'
+          }
+        }
       }) 
     })
   })
