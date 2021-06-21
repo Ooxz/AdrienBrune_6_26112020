@@ -11,6 +11,7 @@ let mediasFromData = [];
 let photographer = null;
 const lightboxbg = document.querySelector(".lightbox-background");
 const lightboxCnt = document.querySelector(".lightbox-content");
+let lightboxBtn = document.querySelectorAll(".photographs__pictures");
 
 /**
  * 
@@ -150,11 +151,64 @@ function launchModal() {
 function launchLightbox() {
   lightboxbg.style.display = "block";
   lightboxCnt.style.display = "block";
+  lightboxBtn.style.display = "flex";
   console.log("lightbox");
 }
+
+// Navigation prochaine et précédente (souris et clavier)
+next.addEventListener('click', () => goToNextSlide())
+prev.addEventListener('click', () => goToPreviousSlide())
+
+document.addEventListener('keydown', (e) => {
+  const keyCode = e.key
+  if (keyCode === 'ArrowRight') {
+    goToNextSlide()
+  } else if (keyCode === 'ArrowLeft') {
+    goToPreviousSlide()
+  } 
+})
+
+function goToNextSlide() {
+  let items = document.querySelectorAll('.lightboxItem')
+  let total = items.length - 1
+  if (position < total ) {
+    const lastItem = document.querySelector(`.item-${position}`)
+    position++
+    const currentItem = document.querySelector(`.item-${position}`)
+    setNodeAttributes(lastItem, currentItem)
+  } else if (position === total) {
+    const lastItem = document.querySelector(`.item-${position}`)
+    position = 0
+    const currentItem = document.querySelector(`.item-${position}`)
+    setNodeAttributes(lastItem, currentItem)
+  }
+}
+function goToPreviousSlide() {
+  let items = document.querySelectorAll('.lightboxItem')
+  let total = items.length - 1
+  if (position - 1 >= 0) {
+    position -= 1
+    const currentItem = document.querySelector(`.item-${position}`)
+    const lastItem = document.querySelector(`.item-${position + 1}`)
+    setNodeAttributes(lastItem, currentItem)
+  } else {
+    const lastItem = document.querySelector(`.item-${position}`)
+    position = total
+    const currentItem = document.querySelector(`.item-${position}`)
+    setNodeAttributes(lastItem, currentItem)
+  }
+}
+
+const setNodeAttributes = (lastItem, currentItem) => {
+  lastItem.style.display = 'none'
+  currentItem.style.display = 'flex'
+  lastItem.setAttribute('aria-hidden', 'true')
+  currentItem.setAttribute('aria-hidden', 'false')
+}
+
 // image apparait au click
 function imageLightboxListener() {
-  const lightboxBtn = document.querySelectorAll(".photographs__pictures");
+  let lightboxBtn = document.querySelectorAll(".photographs__pictures");
   lightboxBtn.forEach((image) => image.addEventListener("click", launchLightbox));
 }
 
