@@ -46,6 +46,14 @@ window.onclick = function (event) {
   }
 }
 
+//click escape to close lightbox
+var boxid = "lightbox-background";
+ window.onkeyup = function (event) {
+  if (event.keyCode == 27) {
+    document.getElementById(boxid).style.display="none";
+  }
+ }
+
 let selectedValue = "";
 
 /**
