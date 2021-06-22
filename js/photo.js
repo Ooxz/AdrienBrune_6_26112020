@@ -157,16 +157,21 @@ function launchModal() {
  * 
  * launch lightbox
  */
-function launchLightbox() {
+function launchLightbox(elt) {
+  // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
   lightboxbg.style.display = "block";
   lightboxCnt.style.display = "block";
-  lightboxBtn.style.display = "flex";
-  console.log("lightbox");
+  // lightboxBtn.style.display = "flex";
+  if(elt.nodeName == "IMG"){
+    document.querySelector(".lightbox__container").innerHTML = `<img src="${elt.src}" style="width:100%">`;
+  }else{
+    document.querySelector(".lightbox__container").innerHTML = `<video src="${elt.src}" style="width:100%" type="video/mp4"></video>`;
+  }
 }
 // image apparait au click
 function imageLightboxListener() {
   const lightboxBtn = document.querySelectorAll(".photographs__pictures");
-  lightboxBtn.forEach((image) => image.addEventListener("click", launchLightbox));
+  lightboxBtn.forEach((image) => image.addEventListener("click", (e) => {launchLightbox(e.target.src)}));
 }
 
 // Navigation prochaine et précédente (souris et clavier)
