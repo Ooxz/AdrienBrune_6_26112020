@@ -14,7 +14,7 @@ export default class PhotographerImage {
     displayInList() {
         let createdCard = `<a class="main__card">
             <div class="card__all">
-              <image class="photographs__pictures" src="${this.imageUrl}" alt="FishEye photographers">
+              <image class="photographs__pictures" data-id="${this.id}" src="${this.imageUrl}" alt="FishEye photographers">
               <div class="photo__info">
               <p class="photo__title">${this.title}</p>
               <p class="photo__price">${this.price}€</p>

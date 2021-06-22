@@ -158,6 +158,9 @@ function launchModal() {
  * launch lightbox
  */
 function launchLightbox(elt) {
+  console.log(elt.nodeName);
+  console.log(elt.dataset.id);
+  console.log("mediasFromData", mediasFromData);
   // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
   lightboxbg.style.display = "block";
   lightboxCnt.style.display = "block";
@@ -165,13 +168,13 @@ function launchLightbox(elt) {
   if(elt.nodeName == "IMG"){
     document.querySelector(".lightbox__container").innerHTML = `<img src="${elt.src}" style="width:100%">`;
   }else{
-    document.querySelector(".lightbox__container").innerHTML = `<video src="${elt.src}" style="width:100%" type="video/mp4"></video>`;
+    document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${elt.src}" style="width:100%" type="video/mp4"></video>`;
   }
 }
 // image apparait au click
 function imageLightboxListener() {
   const lightboxBtn = document.querySelectorAll(".photographs__pictures");
-  lightboxBtn.forEach((image) => image.addEventListener("click", (e) => {launchLightbox(e.target.src)}));
+  lightboxBtn.forEach((image) => image.addEventListener("click", (e) => {launchLightbox(e.target)}));
 }
 
 // Navigation prochaine et précédente (souris et clavier)

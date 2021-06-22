@@ -14,7 +14,7 @@ export default class PhotographerVideo {
     displayInList() {
         let createdCard = `<a class="main__card">
             <div class="card__all">
-            <video class="photographs__pictures" src="${this.videoUrl}" type="video/mp4"></video>
+            <video class="photographs__pictures" data-id="${this.id}" src="${this.videoUrl}" type="video/mp4"></video>
             <img class="logoPlay" src="FishEye_Photos/play.png" alt="" tabindex="-1">
               <div class="photo__info">
               <p class="photo__title">${this.title}</p>
