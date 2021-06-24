@@ -15,26 +15,34 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
       let card = generatedCard(photographer);
       document.getElementById('photographs').innerHTML += card;
     })
-    let tagElements = Array.from(document.getElementsByClassName("tag")); //on créé un tableau de tag
-    // pour chaque element du tableau de tags
-    tagElements.forEach(elt => {
-      elt.addEventListener("click", (e) => {
-        e.preventDefault();
-        let tag = e.target.textContent.substring(1).toLowerCase(); // on défini tag en enmevant # (substring) et en mettant tout en minuscule
-        let filtredArray = users.photographers.filter(elt => elt.tags.includes(tag)); //on créé notre filtre
-        console.log("tags", tag);
-        document.getElementById('photographs').innerHTML = ''; // on vide les photos
-        // on fait apparaitre les photographs qui comprennent le tag cliqué
-        filtredArray.forEach(photographer => {
-          let card = generatedCard(photographer);
-          document.getElementById('photographs').innerHTML += card;
-        })
-      }) 
-    })
+    addTagsListener(".bloc_page", users);
   })
   .catch(function () {
     this.dataError = true;
   })
+
+function addTagsListener(container, users) {
+  let tagElements = Array.from(document.querySelector(container).getElementsByClassName("tag")); //on créé un tableau de tag
+
+  // pour chaque element du tableau de tags
+  tagElements.forEach(elt => {
+    elt.addEventListener("click", (e) => {
+      e.preventDefault();
+      let tag = e.target.textContent.substring(1).toLowerCase(); // on défini tag en enmevant # (substring) et en mettant tout en minuscule
+      let filtredArray = users.photographers.filter(elt => elt.tags.includes(tag)); //on créé notre filtre
+      console.log("tags", tag);
+      document.getElementById('photographs').innerHTML = ''; // on vide les photos
+
+      // on fait apparaitre les photographes qui comprennent le tag cliqué
+      filtredArray.forEach(photographer => {
+        let card = generatedCard(photographer);
+        document.getElementById('photographs').innerHTML += card;
+        addTagsListener('#photographs', users);
+      });
+    });
+  });
+}
+
 // Affichage des photographes par tag // _________________________________________________________________
 
 
