@@ -191,8 +191,8 @@ function imageLightboxListener() {
 }
 
 // Navigation prochaine et précédente (souris et clavier)
-next.addEventListener('click', () => goToNextSlide())
-document.addEventListener('click', () => goToPreviousSlide())
+document.querySelector(".lightbox__next").addEventListener('click', () => goToNextSlide())
+document.querySelector(".lightbox__prev").addEventListener('click', () => goToPreviousSlide())
 
 document.addEventListener('keydown', (e) => {
   const keyCode = e.key
@@ -242,7 +242,7 @@ function goToPreviousSlide() {
   lightboxbg.style.display = "block";
   lightboxCnt.style.display = "block";
   // lightboxBtn.style.display = "flex";
-  if(true){
+  if(mediasFromData[mediaIndex].image){
     document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${mediasFromData[mediaIndex].image}" style="width:100%">`;
   }else{
     document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${mediasFromData[mediaIndex].video}" style="width:100%" type="video/mp4"></video>`;
