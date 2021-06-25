@@ -68,7 +68,7 @@ function generatedCard(item) {
               <p class="card__city">${city}, ${country}</p>
               <p class="card__quote">${tagline}</p>
               <p class="card__price">${price}$/jour</p>
-              <p class="card__tag">${displayTags(tags)}</p>
+              <p class="card__tag" aria-label="tag">${displayTags(tags)}</p>
               </div>
               </a>
               </div>

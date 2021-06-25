@@ -920,6 +920,15 @@ html {
           justify-content: center;
 }
 
+.lightbox__container img {
+  width: 100%;
+  height: 1000px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .lightbox-content {
   margin: 1rem auto;
   max-width: 1253px;
@@ -1003,7 +1012,7 @@ html {
           transform: rotate(180deg);
 }
 
-.lifhtbox__container li img {
+.lightbox__container li img {
   -webkit-animation: lightbox2In 1s;
           animation: lightbox2In 1s;
 }

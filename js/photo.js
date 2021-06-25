@@ -159,6 +159,7 @@ function launchModal() {
  */
 function launchLightbox(elt) {
   console.log("mediasFromData", mediasFromData);
+  // const photographerTitle = document.querySelector('.infos__title')
   let previousId;
   let nextId;
   let mediaIndex = mediasFromData.findIndex(media => media.id == elt.dataset.id);
@@ -178,12 +179,15 @@ function launchLightbox(elt) {
   // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
   lightboxbg.style.display = "block";
   lightboxCnt.style.display = "block";
+  
   // lightboxBtn.style.display = "flex";
   if(elt.nodeName == "IMG"){
     document.querySelector(".lightbox__container").innerHTML = `<img src="${elt.src}" style="width:100%">`;
+    
   }else{
     document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${elt.src}" style="width:100%" type="video/mp4"></video>`;
   }
+  // photographerTitle.innerHTML = `${photographer.title}`;
 }
 // image apparait au click
 function imageLightboxListener() {
@@ -236,7 +240,7 @@ function goToNextSlide() {
 }
 function goToPreviousSlide() {
   const photographerFolder = getPhotographerFolder(photographer.name);
-  let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
+  let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/${title}/`
   let id =  document.querySelector(".lightbox__prev").dataset.id;
   console.log("mediasFromData", mediasFromData);
   let previousId;
