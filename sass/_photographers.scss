@@ -383,12 +383,20 @@ html{
   width: 29.1%;
   margin: 2% 20px 2% 20px;
   padding: 0.3rem;
+  
 }
   .photographs__pictures{
       width: 350px;
       height: 300px;
       border-radius: 2%;
       object-fit: cover;
+      cursor: pointer;
+      & img{
+        transition: transform 1s ease-in-out, opacity 0.1s 100ms;
+      }
+      &:hover{
+      opacity: 0.9;
+      }
   }
   .logoPlay{
     position: absolute;

@@ -832,6 +832,18 @@ html {
   border-radius: 2%;
   -o-object-fit: cover;
      object-fit: cover;
+  cursor: pointer;
+}
+
+.photographs__pictures img {
+  -webkit-transition: opacity 0.1s 100ms, -webkit-transform 1s ease-in-out;
+  transition: opacity 0.1s 100ms, -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, opacity 0.1s 100ms;
+  transition: transform 1s ease-in-out, opacity 0.1s 100ms, -webkit-transform 1s ease-in-out;
+}
+
+.photographs__pictures:hover {
+  opacity: 0.9;
 }
 
 .logoPlay {

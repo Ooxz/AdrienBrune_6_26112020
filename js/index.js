@@ -68,7 +68,7 @@ function generatedCard(item) {
               <p class="card__city">${city}, ${country}</p>
               <p class="card__quote">${tagline}</p>
               <p class="card__price">${price}$/jour</p>
-              <p class="card__tag" aria-label="tag">${displayTags(tags)}</p>
+              <p class="card__tag">${displayTags(tags)}</p>
               </div>
               </a>
               </div>
@@ -81,7 +81,7 @@ function generatedCard(item) {
 function displayTags(tags) {
   let stringTemplate = ``;
   tags.forEach(tag => {
-    stringTemplate += `<a><span class="tag">#${tag}</span></a>`
+    stringTemplate += `<a><span class="tag" tabindex="0">#${tag}</span></a>`
   });
   return stringTemplate
 }

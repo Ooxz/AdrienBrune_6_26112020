@@ -41,6 +41,13 @@ window.onclick = function (event) {
   }
 }
 
+//click escape to close modal
+window.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    modalbg.style.display = 'none'
+  }
+})
+
 //clicking outside of the lightboxbg will close it
 window.onclick = function (event) {
   if (event.target == lightboxbg) {
@@ -49,7 +56,7 @@ window.onclick = function (event) {
 }
 
 //click escape to close lightbox
-var boxid = "lightbox-background";
+let boxid = "lightbox-background";
  window.onkeyup = function (event) {
   if (event.keyCode == 27) {
     document.getElementById(boxid).style.display="none";
