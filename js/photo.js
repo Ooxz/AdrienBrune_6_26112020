@@ -80,10 +80,11 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
       const medias = getMediaFromData(data, photographer.id);
       mediasFromData = [...medias];
       console.log("media from data", mediasFromData);
-      displayContent(photographer, medias);
-      totalLikes(medias);
-      likeEventListener();
-      imageLightboxListener();
+      // displayContent(photographer, medias);
+      // totalLikes(medias);
+      // likeEventListener();
+      // imageLightboxListener();
+      refreshDom();
     }
   })
   .catch(error => console.error(error.message));
@@ -130,6 +131,7 @@ function refreshDom() {
   displayContent(photographer, orderedMedias);
   totalLikes(orderedMedias);
   likeEventListener();
+  imageLightboxListener();
 }
 
 function displayContent(photographer, medias) {
@@ -234,6 +236,7 @@ function goToNextSlide() {
     nextId = mediasFromData[mediaIndex + 1].id;
   }
   document.querySelector(".lightbox__next").dataset.id = nextId;
+  document.querySelector(".lightbox__prev").dataset.id = previousId;
   console.log(id, previousId, nextId);
   // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
   lightboxbg.style.display = "block";
@@ -247,7 +250,7 @@ function goToNextSlide() {
 }
 function goToPreviousSlide() {
   const photographerFolder = getPhotographerFolder(photographer.name);
-  let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/${title}/`
+  let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
   let id =  document.querySelector(".lightbox__prev").dataset.id;
   console.log("mediasFromData", mediasFromData);
   let previousId;
@@ -263,6 +266,7 @@ function goToPreviousSlide() {
     previousId = mediasFromData[mediaIndex - 1].id;
     nextId = mediasFromData[mediaIndex + 1].id;
   }
+  document.querySelector(".lightbox__next").dataset.id = nextId;
   document.querySelector(".lightbox__prev").dataset.id = previousId;
   console.log(id, previousId, nextId);
   // const lightboxBtn = document.querySelectorAll(".photographs__pictures");

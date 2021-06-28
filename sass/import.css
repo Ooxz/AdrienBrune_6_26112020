@@ -471,6 +471,10 @@ html {
   color: #901C1C;
 }
 
+.sect__nav::child {
+  border: #525252;
+}
+
 #photographer__photo img {
   -o-object-fit: cover;
      object-fit: cover;
