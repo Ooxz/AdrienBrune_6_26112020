@@ -200,74 +200,74 @@ document.querySelector(".lightbox__prev").addEventListener('click', (e) => launc
 document.addEventListener('keydown', (e) => {
   const keyCode = e.key
   if (keyCode === 'ArrowRight') {
-    document.querySelector(".lightbox__next").dataset.id = mediasToDisplay.next;
+    goToNextSlide()
   } else if (keyCode === 'ArrowLeft') {
-    document.querySelector(".lightbox__prev").dataset.id = mediasToDisplay.previous;
+    goToPreviousSlide()
   } 
 })
 
-// function goToNextSlide() {
-//   const photographerFolder = getPhotographerFolder(photographer.name);
-//   let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
-//   let id =  document.querySelector(".lightbox__next").dataset.id;
-//   console.log("mediasFromData", mediasFromData);
-//   let previousId;
-//   let nextId;
-//   let mediaIndex = mediasFromData.findIndex(media => media.id == id);
-//   if(mediaIndex == 0){
-//     previousId = mediasFromData[mediasFromData.length - 1].id; // le dernier item
-//     nextId = mediasFromData[1].id;
-//   }else if(mediaIndex == (mediasFromData.length - 1)){
-//     previousId = mediasFromData[mediasFromData.length - 2].id;
-//     nextId = mediasFromData[0].id;
-//   }else{
-//     previousId = mediasFromData[mediaIndex - 1].id;
-//     nextId = mediasFromData[mediaIndex + 1].id;
-//   }
-//   document.querySelector(".lightbox__next").dataset.id = nextId;
-//   document.querySelector(".lightbox__prev").dataset.id = previousId;
-//   console.log(id, previousId, nextId);
-//   // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
-//   lightboxbg.style.display = "block";
-//   lightboxCnt.style.display = "block";
-//   // lightboxBtn.style.display = "flex";
-//   if(mediasFromData[mediaIndex].image){
-//     document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${mediasFromData[mediaIndex].image}" style="width:100%">`;
-//   }else{
-//     document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${mediasFromData[mediaIndex].video}" style="width:100%" type="video/mp4"></video>`;
-//   }
-// }
-// function goToPreviousSlide() {
-//   const photographerFolder = getPhotographerFolder(photographer.name);
-//   let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
-//   let id =  document.querySelector(".lightbox__prev").dataset.id;
-//   console.log("mediasFromData", mediasFromData);
-//   let previousId;
-//   let nextId;
-//   let mediaIndex = mediasFromData.findIndex(media => media.id == id);
-//   if(mediaIndex == 0){
-//     previousId = mediasFromData[mediasFromData.length - 1].id; // le dernier item
-//     nextId = mediasFromData[1].id;
-//   }else if(mediaIndex == (mediasFromData.length - 1)){
-//     previousId = mediasFromData[mediasFromData.length - 2].id;
-//     nextId = mediasFromData[0].id;
-//   }else{
-//     previousId = mediasFromData[mediaIndex - 1].id;
-//     nextId = mediasFromData[mediaIndex + 1].id;
-//   }
-//   document.querySelector(".lightbox__next").dataset.id = nextId;
-//   document.querySelector(".lightbox__prev").dataset.id = previousId;
-//   console.log(id, previousId, nextId);
-//   // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
-//   lightboxbg.style.display = "block";
-//   lightboxCnt.style.display = "block";
-//   // lightboxBtn.style.display = "flex";
-//   if(mediasFromData[mediaIndex].image){
-//     document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${mediasFromData[mediaIndex].image}" style="width:100%">`;
-//   }else{
-//     document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${mediasFromData[mediaIndex].video}" style="width:100%" type="video/mp4"></video>`;
-//   }
-// }
+function goToNextSlide() {
+  const photographerFolder = getPhotographerFolder(photographer.name);
+  let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
+  let id =  document.querySelector(".lightbox__next").dataset.id;
+  console.log("mediasFromData", mediasFromData);
+  let previousId;
+  let nextId;
+  let mediaIndex = mediasFromData.findIndex(media => media.id == id);
+  if(mediaIndex == 0){
+    previousId = mediasFromData[mediasFromData.length - 1].id; // le dernier item
+    nextId = mediasFromData[1].id;
+  }else if(mediaIndex == (mediasFromData.length - 1)){
+    previousId = mediasFromData[mediasFromData.length - 2].id;
+    nextId = mediasFromData[0].id;
+  }else{
+    previousId = mediasFromData[mediaIndex - 1].id;
+    nextId = mediasFromData[mediaIndex + 1].id;
+  }
+  document.querySelector(".lightbox__next").dataset.id = nextId;
+  document.querySelector(".lightbox__prev").dataset.id = previousId;
+  console.log(id, previousId, nextId);
+  // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
+  lightboxbg.style.display = "block";
+  lightboxCnt.style.display = "block";
+  // lightboxBtn.style.display = "flex";
+  if(mediasFromData[mediaIndex].image){
+    document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${mediasFromData[mediaIndex].image}" style="width:100%">`;
+  }else{
+    document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${mediasFromData[mediaIndex].video}" style="width:100%" type="video/mp4"></video>`;
+  }
+}
+function goToPreviousSlide() {
+  const photographerFolder = getPhotographerFolder(photographer.name);
+  let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
+  let id =  document.querySelector(".lightbox__prev").dataset.id;
+  console.log("mediasFromData", mediasFromData);
+  let previousId;
+  let nextId;
+  let mediaIndex = mediasFromData.findIndex(media => media.id == id);
+  if(mediaIndex == 0){
+    previousId = mediasFromData[mediasFromData.length - 1].id; // le dernier item
+    nextId = mediasFromData[1].id;
+  }else if(mediaIndex == (mediasFromData.length - 1)){
+    previousId = mediasFromData[mediasFromData.length - 2].id;
+    nextId = mediasFromData[0].id;
+  }else{
+    previousId = mediasFromData[mediaIndex - 1].id;
+    nextId = mediasFromData[mediaIndex + 1].id;
+  }
+  document.querySelector(".lightbox__next").dataset.id = nextId;
+  document.querySelector(".lightbox__prev").dataset.id = previousId;
+  console.log(id, previousId, nextId);
+  // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
+  lightboxbg.style.display = "block";
+  lightboxCnt.style.display = "block";
+  // lightboxBtn.style.display = "flex";
+  if(mediasFromData[mediaIndex].image){
+    document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${mediasFromData[mediaIndex].image}" style="width:100%">`;
+  }else{
+    document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${mediasFromData[mediaIndex].video}" style="width:100%" type="video/mp4"></video>`;
+  }
+}
 
 const setNodeAttributes = (lastItem, currentItem) => {
   lastItem.style.display = 'none'

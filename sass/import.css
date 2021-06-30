@@ -443,6 +443,14 @@ html {
   margin-left: 2rem;
 }
 
+.sect__btn:hover {
+  background-color: #DB8876;
+}
+
+.sect__btn:focus {
+  background-color: #DB8876;
+}
+
 .sect__photo {
   width: 12.5rem;
   height: 12.5rem;
@@ -854,7 +862,7 @@ html {
   position: absolute;
   margin-top: 120px;
   width: 5rem;
-  z-index: 3;
+  z-index: 1;
 }
 
 .photo__info {
@@ -915,6 +923,7 @@ html {
   border-radius: 0.5rem 0.5rem 0 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  z-index: 2;
 }
 
 .lightbox-background {
