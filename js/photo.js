@@ -358,47 +358,12 @@ function filterMedias(selectedValue) {
   let orderedMedias = null;
   switch (selectedValue) {
     case "popularity":
-      function compareByPopularity(a, b) {
-        let likesA = a.likes;
-        let likesB = b.likes;
-        let comparison = 0;
-        if (likesA < likesB) {
-          comparison = 1;
-        } else if (likesA > likesB) {
-          comparison = -1;
-        }
-        return comparison;
-      }
       orderedMedias = mediasFromData.sort(compareByPopularity);
       break;
     case "date":
-      function compareByDate(a, b) {
-        let dateA = new Date(a.date).getTime();
-        let dateB = new Date(b.date).getTime();
-        let comparison = 0;
-        if (dateA < dateB) {
-          comparison = 1;
-        } else if (dateA > dateB) {
-          comparison = -1;
-        }
-        return comparison;
-      }
       orderedMedias = mediasFromData.sort(compareByDate);
       break;
     case "title":
-      function compareByTitle(a, b) {
-        let titleA = a.title;
-        a = titleA.toLowerCase()
-        let titleB = b.title;
-        b = titleB.toLowerCase()
-        let comparison = 0;
-        if (titleA > titleB) {
-          comparison = 1;
-        } else if (titleA < titleB) {
-          comparison = -1;
-        }
-        return comparison;
-      }
       orderedMedias = mediasFromData.sort(compareByTitle);
       break;
 
@@ -407,6 +372,44 @@ function filterMedias(selectedValue) {
   }
 
   return orderedMedias;
+}
+
+function compareByPopularity(a, b) {
+  let likesA = a.likes;
+  let likesB = b.likes;
+  let comparison = 0;
+  if (likesA < likesB) {
+    comparison = 1;
+  } else if (likesA > likesB) {
+    comparison = -1;
+  }
+  return comparison;
+}
+
+function compareByDate(a, b) {
+  let dateA = new Date(a.date).getTime();
+  let dateB = new Date(b.date).getTime();
+  let comparison = 0;
+  if (dateA < dateB) {
+    comparison = 1;
+  } else if (dateA > dateB) {
+    comparison = -1;
+  }
+  return comparison;
+}
+
+function compareByTitle(a, b) {
+  let titleA = a.title;
+  a = titleA.toLowerCase()
+  let titleB = b.title;
+  b = titleB.toLowerCase()
+  let comparison = 0;
+  if (titleA > titleB) {
+    comparison = 1;
+  } else if (titleA < titleB) {
+    comparison = -1;
+  }
+  return comparison;
 }
 
 function pickUpMediasToDisplay(id){
