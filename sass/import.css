@@ -874,6 +874,9 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 350px !important;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;

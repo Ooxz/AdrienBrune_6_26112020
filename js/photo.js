@@ -56,12 +56,19 @@ window.onclick = function (event) {
 }
 
 //click escape to close lightbox
-let boxid = "lightbox-background";
+let escBox = "lightbox-background";
  window.onkeyup = function (event) {
   if (event.keyCode == 27) {
-    document.getElementById(boxid).style.display="none";
+    document.getElementById(escBox).style.display="none";
   }
  }
+ //enter to open lightbox image
+//  let enterOpen = "lightbox-background";
+//  window.onkeyup = function (event) {
+//   if (event.keyCode == 13) {
+//     document.getElementById(enterOpen).style.display="flex";
+//   }
+//  }
 
 let selectedValue = "";
 
@@ -120,8 +127,17 @@ window.addEventListener('click', function (e) {
   }
 })
 
-
-
+// document.addEventListener('keydown', (e) => {
+//   const lightboxBtn = document.querySelectorAll(".photographs__pictures");      
+//   const keyCode = e.code
+//   if (keyCode === 'Enter') {
+//     lightboxBtn.forEach((image) => image.addEventListener("click", (e) => {launchLightbox(e.target)}));
+//   }
+// })
+function imageLightboxListeners() {
+  const lightboxBtns = document.querySelectorAll(".photographs__pictures");
+  lightboxBtns.forEach((image) => image.addEventListener("keydown", (e) => {launchLightbox(e.target)}));
+}
 /*
  * FUNCTIONS
  */
@@ -305,7 +321,6 @@ function likeEventListener() {
     }
   })
 }
-
 
 
 function getParamFromURL(param) {
