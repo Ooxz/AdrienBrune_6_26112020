@@ -406,6 +406,9 @@ html{
       &:hover{
       opacity: 0.9;
       }
+      &:focus{
+        outline-color: #D3573C;
+      }
   }
   .logoPlay{
     position: absolute;
@@ -447,6 +450,14 @@ html{
     font-weight: 400;
     color: #901C1C;
     white-space: nowrap;
+    cursor: pointer;
+    &:hover{
+      color: #DB8876;
+    }
+    &:focus{
+      color: #DB8876;
+      outline: none;
+    }
   }
 
   .infos__likes{

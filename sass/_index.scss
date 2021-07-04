@@ -41,8 +41,7 @@ header {
         transform: scale(1.1);
       }
       &:focus{
-        background-color: #DB8876;
-        outline-color: #DB8876;
+        outline: none;
       }
     }
     &__links{
