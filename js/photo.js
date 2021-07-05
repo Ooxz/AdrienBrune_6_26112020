@@ -12,7 +12,7 @@ let photographer = null;
 const lightboxbg = document.querySelector(".lightbox-background");
 const lightboxCnt = document.querySelector(".lightbox-content");
 let lightboxBtn = document.querySelectorAll(".photographs__pictures");
-
+let mediasToDisplay;
 
 /**
  * 
@@ -136,7 +136,7 @@ window.addEventListener('click', function (e) {
 // })
 function imageLightboxListeners() {
   const lightboxBtns = document.querySelectorAll(".photographs__pictures");
-  lightboxBtns.forEach((image) => image.addEventListener("keydown", (e) => {launchLightbox(e.target)}));
+  lightboxBtns.forEach((image) => image.addEventListener("keydown", (e) => {launchLightbox(e.target.dataset.id)}));
 }
 /*
  * FUNCTIONS
@@ -182,11 +182,11 @@ function launchModal() {
  * 
  * launch lightbox
  */
-function launchLightbox(elt) {
+function launchLightbox(id) {
   console.log("mediasFromData", mediasFromData);
   const photographerFolder = getPhotographerFolder(photographer.name);
   let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
-  let mediasToDisplay = pickUpMediasToDisplay(elt.dataset.id);
+  mediasToDisplay = pickUpMediasToDisplay(id);
   let media = mediasToDisplay.media;
   document.querySelector(".lightbox__prev").dataset.id = mediasToDisplay.previous;
   document.querySelector(".lightbox__next").dataset.id = mediasToDisplay.next;
@@ -199,98 +199,108 @@ function launchLightbox(elt) {
     document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${media.image}" style="width:100%"><p>${media.title}</p>`;
     
   }else{
-    document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${media.title}" style="width:100%" type="video/mp4"></video>`;
+    document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${media.title}" style="width:100%" type="video/mp4"></video><p>${media.title}</p>`;
   }
   // photographerTitle.innerHTML = `${photographer.title}`;
 }
 // image apparait au click
 function imageLightboxListener() {
   const lightboxBtn = document.querySelectorAll(".photographs__pictures");
-  lightboxBtn.forEach((image) => image.addEventListener("click", (e) => {launchLightbox(e.target)}));
+  lightboxBtn.forEach((image) => image.addEventListener("click", (e) => {launchLightbox(e.target.dataset.id)}));
 }
 
 // Navigation prochaine et précédente (souris et clavier)
-document.querySelector(".lightbox__next").addEventListener('click', (e) => launchLightbox(e.target))
-document.querySelector(".lightbox__prev").addEventListener('click', (e) => launchLightbox(e.target))
+document.querySelector(".lightbox__next").addEventListener('click', (e) => launchLightbox(e.target.dataset.id))
+document.querySelector(".lightbox__prev").addEventListener('click', (e) => launchLightbox(e.target.dataset.id))
 
 document.addEventListener('keydown', (e) => {
   const keyCode = e.key
   if (keyCode === 'ArrowRight') {
-    goToNextSlide()
+    launchLightbox(mediasToDisplay.next)
   } else if (keyCode === 'ArrowLeft') {
-    goToPreviousSlide()
+    launchLightbox(mediasToDisplay.previous)
   } 
+    else if (keyCode === 'Enter'){
+      let selectedElt = document.querySelector(":focus");
+      console.log(selectedElt);
+      if (selectedElt.dataset.id != undefined){
+        launchLightbox(selectedElt.dataset.id);
+      }
+      else if (selectedElt.classList.contains("dropdown__trigger")){
+        selectedElt.classList.toggle('open');
+      }
+    }
 })
 
-function goToNextSlide() {
-  const photographerFolder = getPhotographerFolder(photographer.name);
-  let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
-  let id =  document.querySelector(".lightbox__next").dataset.id;
-  console.log("mediasFromData", mediasFromData);
-  let previousId;
-  let nextId;
-  let mediaIndex = mediasFromData.findIndex(media => media.id == id);
-  if(mediaIndex == 0){
-    previousId = mediasFromData[mediasFromData.length - 1].id; // le dernier item
-    nextId = mediasFromData[1].id;
-  }else if(mediaIndex == (mediasFromData.length - 1)){
-    previousId = mediasFromData[mediasFromData.length - 2].id;
-    nextId = mediasFromData[0].id;
-  }else{
-    previousId = mediasFromData[mediaIndex - 1].id;
-    nextId = mediasFromData[mediaIndex + 1].id;
-  }
-  document.querySelector(".lightbox__next").dataset.id = nextId;
-  document.querySelector(".lightbox__prev").dataset.id = previousId;
-  console.log(id, previousId, nextId);
-  // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
-  lightboxbg.style.display = "block";
-  lightboxCnt.style.display = "block";
-  // lightboxBtn.style.display = "flex";
-  if(mediasFromData[mediaIndex].image){
-    document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${mediasFromData[mediaIndex].image}" style="width:100%">`;
-  }else{
-    document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${mediasFromData[mediaIndex].video}" style="width:100%" type="video/mp4"></video>`;
-  }
-}
-function goToPreviousSlide() {
-  const photographerFolder = getPhotographerFolder(photographer.name);
-  let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
-  let id =  document.querySelector(".lightbox__prev").dataset.id;
-  console.log("mediasFromData", mediasFromData);
-  let previousId;
-  let nextId;
-  let mediaIndex = mediasFromData.findIndex(media => media.id == id);
-  if(mediaIndex == 0){
-    previousId = mediasFromData[mediasFromData.length - 1].id; // le dernier item
-    nextId = mediasFromData[1].id;
-  }else if(mediaIndex == (mediasFromData.length - 1)){
-    previousId = mediasFromData[mediasFromData.length - 2].id;
-    nextId = mediasFromData[0].id;
-  }else{
-    previousId = mediasFromData[mediaIndex - 1].id;
-    nextId = mediasFromData[mediaIndex + 1].id;
-  }
-  document.querySelector(".lightbox__next").dataset.id = nextId;
-  document.querySelector(".lightbox__prev").dataset.id = previousId;
-  console.log(id, previousId, nextId);
-  // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
-  lightboxbg.style.display = "block";
-  lightboxCnt.style.display = "block";
-  // lightboxBtn.style.display = "flex";
-  if(mediasFromData[mediaIndex].image){
-    document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${mediasFromData[mediaIndex].image}" style="width:100%">`;
-  }else{
-    document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${mediasFromData[mediaIndex].video}" style="width:100%" type="video/mp4"></video>`;
-  }
-}
+// function goToNextSlide() {
+//   const photographerFolder = getPhotographerFolder(photographer.name);
+//   let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
+//   let id =  document.querySelector(".lightbox__next").dataset.id;
+//   console.log("mediasFromData", mediasFromData);
+//   let previousId;
+//   let nextId;
+//   let mediaIndex = mediasFromData.findIndex(media => media.id == id);
+//   if(mediaIndex == 0){
+//     previousId = mediasFromData[mediasFromData.length - 1].id; // le dernier item
+//     nextId = mediasFromData[1].id;
+//   }else if(mediaIndex == (mediasFromData.length - 1)){
+//     previousId = mediasFromData[mediasFromData.length - 2].id;
+//     nextId = mediasFromData[0].id;
+//   }else{
+//     previousId = mediasFromData[mediaIndex - 1].id;
+//     nextId = mediasFromData[mediaIndex + 1].id;
+//   }
+//   document.querySelector(".lightbox__next").dataset.id = nextId;
+//   document.querySelector(".lightbox__prev").dataset.id = previousId;
+//   console.log(id, previousId, nextId);
+//   // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
+//   lightboxbg.style.display = "block";
+//   lightboxCnt.style.display = "block";
+//   // lightboxBtn.style.display = "flex";
+//   if(mediasFromData[mediaIndex].image){
+//     document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${mediasFromData[mediaIndex].image}" style="width:100%">`;
+//   }else{
+//     document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${mediasFromData[mediaIndex].video}" style="width:100%" type="video/mp4"></video>`;
+//   }
+// }
+// function goToPreviousSlide() {
+//   const photographerFolder = getPhotographerFolder(photographer.name);
+//   let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
+//   let id =  document.querySelector(".lightbox__prev").dataset.id;
+//   console.log("mediasFromData", mediasFromData);
+//   let previousId;
+//   let nextId;
+//   let mediaIndex = mediasFromData.findIndex(media => media.id == id);
+//   if(mediaIndex == 0){
+//     previousId = mediasFromData[mediasFromData.length - 1].id; // le dernier item
+//     nextId = mediasFromData[1].id;
+//   }else if(mediaIndex == (mediasFromData.length - 1)){
+//     previousId = mediasFromData[mediasFromData.length - 2].id;
+//     nextId = mediasFromData[0].id;
+//   }else{
+//     previousId = mediasFromData[mediaIndex - 1].id;
+//     nextId = mediasFromData[mediaIndex + 1].id;
+//   }
+//   document.querySelector(".lightbox__next").dataset.id = nextId;
+//   document.querySelector(".lightbox__prev").dataset.id = previousId;
+//   console.log(id, previousId, nextId);
+//   // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
+//   lightboxbg.style.display = "block";
+//   lightboxCnt.style.display = "block";
+//   // lightboxBtn.style.display = "flex";
+//   if(mediasFromData[mediaIndex].image){
+//     document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${mediasFromData[mediaIndex].image}" style="width:100%">`;
+//   }else{
+//     document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${mediasFromData[mediaIndex].video}" style="width:100%" type="video/mp4"></video>`;
+//   }
+// }
 
-const setNodeAttributes = (lastItem, currentItem) => {
-  lastItem.style.display = 'none'
-  currentItem.style.display = 'flex'
-  lastItem.setAttribute('aria-hidden', 'true')
-  currentItem.setAttribute('aria-hidden', 'false')
-}
+// const setNodeAttributes = (lastItem, currentItem) => {
+//   lastItem.style.display = 'none'
+//   currentItem.style.display = 'flex'
+//   lastItem.setAttribute('aria-hidden', 'true')
+//   currentItem.setAttribute('aria-hidden', 'false')
+// }
 
 
 /**
