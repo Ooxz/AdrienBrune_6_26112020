@@ -966,6 +966,13 @@ html {
           justify-content: center;
 }
 
+.lightbox__title {
+  color: #901C1C;
+  font-size: 24px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
 .lightbox__container img {
   width: 100%;
   height: 1000px;

@@ -492,6 +492,12 @@ html{
     animation: lightbox2In 0.5s;
     justify-content: center;
   }
+  .lightbox__title{
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
   .lightbox__container{
     & img{
       width: 100%;

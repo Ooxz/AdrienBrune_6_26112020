@@ -196,7 +196,7 @@ function launchLightbox(id) {
   
   // lightboxBtn.style.display = "flex";
   if(media.image){
-    document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${media.image}" style="width:100%"><p>${media.title}</p>`;
+    document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${media.image}" style="width:100%"><p class="lightbox__title">${media.title}</p>`;
     
   }else{
     document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${media.title}" style="width:100%" type="video/mp4"></video><p>${media.title}</p>`;
@@ -226,8 +226,11 @@ document.addEventListener('keydown', (e) => {
       if (selectedElt.dataset.id != undefined){
         launchLightbox(selectedElt.dataset.id);
       }
-      else if (selectedElt.classList.contains("dropdown__trigger")){
+      else if (selectedElt.classList.contains('dropdown__trigger')){
         selectedElt.classList.toggle('open');
+      }
+      else if (selectedElt.dataset.id != undefined){
+        likeEventListener(selectedElt.dataset.id);
       }
     }
 })
