@@ -223,14 +223,31 @@ document.addEventListener('keydown', (e) => {
     else if (keyCode === 'Enter'){
       let selectedElt = document.querySelector(":focus");
       console.log(selectedElt);
-      if (selectedElt.dataset.id != undefined){
+      if (selectedElt.dataset.id != undefined && !selectedElt.classList.contains('pic_like')){
         launchLightbox(selectedElt.dataset.id);
       }
       else if (selectedElt.classList.contains('dropdown__trigger')){
-        selectedElt.classList.toggle('open');
+        document.querySelector(".dropdown__select").classList.toggle('open');
       }
-      else if (selectedElt.dataset.id != undefined){
-        likeEventListener(selectedElt.dataset.id);
+      else if (selectedElt.classList.contains('dropdown__option')){
+        selectedValue = selectedElt.getAttribute("data-value");
+      // Filter
+      refreshDom();
+      selectedElt.closest('.dropdown__select').querySelector('.dropdown__trigger span').textContent = selectedElt.textContent;
+      document.querySelector(".dropdown__select").classList.toggle('open');
+      }
+      else if (selectedElt.dataset.id != undefined && selectedElt.classList.contains('pic_like')){
+        let pic = mediasFromData.find(media => media.id == selectedElt.dataset.id);
+        pic.likes++;
+        console.log(pic);
+        refreshDom();
+        window.setTimeout(function(){
+          let selected = document.querySelector(":focus");
+        console.log(selected, selectedElt);
+          selectedElt.focus();
+        }, 0);
+        
+        
       }
     }
 })
