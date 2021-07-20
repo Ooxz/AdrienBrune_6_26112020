@@ -394,7 +394,7 @@ function displayTags(tags) {
   let stringTemplate = ``;
   tags.forEach(tag => {
     console.log(tag)
-    stringTemplate += `#${tag} `
+    stringTemplate += `<a><span class="tag" tabindex="0">#${tag}</span></a>`
   });
   return stringTemplate
 }
