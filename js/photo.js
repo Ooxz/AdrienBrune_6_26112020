@@ -199,7 +199,7 @@ function launchLightbox(id) {
     document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${media.image}" style="width:100%"><p class="lightbox__title">${media.title}</p>`;
     
   }else{
-    document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${media.title}" style="width:100%" type="video/mp4"></video><p class="lightbox__title">${media.title}</p>`;
+    document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${media.video}" style="width:100%" type="video/mp4"></video><p class="lightbox__title">${media.title}</p>`;
   }
   // photographerTitle.innerHTML = `${photographer.title}`;
 }
