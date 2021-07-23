@@ -1,18 +1,17 @@
 export default class PhotographerImage {
-    constructor(item){
-        this.id = item.id;
-        this.photographerId = item.photographerId;
-        this.imageUrl = item.imageUrl;
-        this.title = item.title;
-        this.tags = item.tags;
-        this.likes = item.likes;
-        this.date = item.dates;
-        this.price = item.price;
+  constructor (item) {
+    this.id = item.id
+    this.photographerId = item.photographerId
+    this.imageUrl = item.imageUrl
+    this.title = item.title
+    this.tags = item.tags
+    this.likes = item.likes
+    this.date = item.dates
+    this.price = item.price
+  }
 
-    }
-
-    displayInList() {
-        let createdCard = `<a class="main__card">
+  displayInList () {
+    const createdCard = `<a class="main__card">
             <div class="card__all">
               <image class="photographs__pictures" tabindex="0" data-id="${this.id}" src="${this.imageUrl}" alt="FishEye photographers">
               <div class="photo__info">
@@ -24,6 +23,6 @@ export default class PhotographerImage {
               </a>
               </div>
               `
-              return createdCard;
-    }
+    return createdCard
+  }
 }
