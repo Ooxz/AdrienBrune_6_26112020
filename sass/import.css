@@ -487,25 +487,6 @@ html {
   border: #525252;
 }
 
-.tag {
-  font-size: 12px;
-  font-weight: 500;
-  color: #901C1C;
-  margin-top: 10px;
-  border: solid 0.1rem #c4c4c4;
-  border-radius: 1.5rem;
-  margin-right: 5px;
-  padding: 2px 2px 2px 2px;
-  cursor: pointer;
-}
-
-.tag:hover, .tag:focus {
-  outline: none;
-  color: white;
-  background-color: #901c1c;
-  border: solid 0.1rem #901c1c;
-}
-
 #photographer__photo img {
   -o-object-fit: cover;
      object-fit: cover;
