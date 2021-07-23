@@ -157,7 +157,7 @@ function displayContent(photographer, medias) {
   document.getElementById("photographer__city").textContent = `${photographer.city},`;
   document.getElementById("photographer__country").textContent = photographer.country;
   document.getElementById("photographer__tagline").textContent = photographer.tagline;
-  document.getElementById("photographer__tags").textContent = `${displayTags(photographer.tags)}`;
+  document.getElementById("photographer__tags").innerHTML = `${displayTags(photographer.tags)}`;
   var test = document.createElement("IMG");
   test.setAttribute("src", `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${photographer.portrait}`);
   document.getElementById("photographer__photo").innerHTML = '';
