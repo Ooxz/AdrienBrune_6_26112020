@@ -1,18 +1,17 @@
 export default class PhotographerVideo {
-    constructor(item){
-        this.id = item.id;
-        this.photographerId = item.photographerId;
-        this.videoUrl = item.videoUrl;
-        this.title = item.title;
-        this.tags = item.tags;
-        this.likes = item.likes;
-        this.date = item.dates;
-        this.price = item.price;
+  constructor (item) {
+    this.id = item.id
+    this.photographerId = item.photographerId
+    this.videoUrl = item.videoUrl
+    this.title = item.title
+    this.tags = item.tags
+    this.likes = item.likes
+    this.date = item.dates
+    this.price = item.price
+  }
 
-    }
-
-    displayInList() {
-        let createdCard = `<a class="main__card">
+  displayInList () {
+    const createdCard = `<a class="main__card">
             <div class="card__all">
             <video class="photographs__pictures" tabindex="0" data-id="${this.id}" src="${this.videoUrl}" type="video/mp4"></video>
             <img class="logoPlay" src="FishEye_Photos/play.png" alt="" tabindex="-1">
@@ -25,6 +24,6 @@ export default class PhotographerVideo {
               </a>
               </div>
               `
-              return createdCard;
-    }
+    return createdCard
+  }
 }

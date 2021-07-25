@@ -1,66 +1,63 @@
 
-window.onscroll = function () { scrollFunction() };
+window.onscroll = function () { scrollFunction() }
 
 // http://localhost:8080
 fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
   .then(response => {
     if (!response.ok) {
-      throw new Error("HTTP error " + response.status);
+      throw new Error('HTTP error ' + response.status)
     }
-    return response.json();
+    return response.json()
   })
   .then(json => {
-    let users = json;
+    const users = json
     users.photographers.forEach(photographer => {
-      let card = generatedCard(photographer);
-      document.getElementById('photographs').innerHTML += card;
+      const card = generatedCard(photographer)
+      document.getElementById('photographs').innerHTML += card
     })
-    addTagsListener(".bloc_page", users);
+    addTagsListener('.bloc_page', users)
   })
   .catch(function () {
-    this.dataError = true;
+    this.dataError = true
   })
 
-function addTagsListener(container, users) {
-  let tagElements = Array.from(document.querySelector(container).getElementsByClassName("tag")); //on créé un tableau de tag
+function addTagsListener (container, users) {
+  const tagElements = Array.from(document.querySelector(container).getElementsByClassName('tag')) // on créé un tableau de tag
 
   // pour chaque element du tableau de tags
   tagElements.forEach(elt => {
-    elt.addEventListener("click", (e) => {
-      e.preventDefault();
-      let tag = e.target.textContent.substring(1).toLowerCase(); // on défini tag en enmevant # (substring) et en mettant tout en minuscule
-      let filtredArray = users.photographers.filter(elt => elt.tags.includes(tag)); //on créé notre filtre
-      console.log("tags", tag);
-      document.getElementById('photographs').innerHTML = ''; // on vide les photos
+    elt.addEventListener('click', (e) => {
+      e.preventDefault()
+      const tag = e.target.textContent.substring(1).toLowerCase() // on défini tag en enmevant # (substring) et en mettant tout en minuscule
+      const filtredArray = users.photographers.filter(elt => elt.tags.includes(tag)) // on créé notre filtre
+      console.log('tags', tag)
+      document.getElementById('photographs').innerHTML = '' // on vide les photos
 
       // on fait apparaitre les photographes qui comprennent le tag cliqué
       filtredArray.forEach(photographer => {
-        let card = generatedCard(photographer);
-        document.getElementById('photographs').innerHTML += card;
-        addTagsListener('#photographs', users);
-      });
-    });
-  });
+        const card = generatedCard(photographer)
+        document.getElementById('photographs').innerHTML += card
+        addTagsListener('#photographs', users)
+      })
+    })
+  })
 }
 
 // Affichage des photographes par tag // _________________________________________________________________
 
+// scroll 10 px down and the div shows
 
-
-//scroll 10 px down and the div shows
-
-function scrollFunction() {
+function scrollFunction () {
   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-    document.getElementById("scroll__div").style.display = "flex";
+    document.getElementById('scroll__div').style.display = 'flex'
   } else {
-    document.getElementById("scroll__div").style.display = "none";
+    document.getElementById('scroll__div').style.display = 'none'
   }
 }
 
-
-function generatedCard(item) {
-  const { name, id, city, country, tags, tagline, price, portrait } = item;
-  let createdCard = `<a class="main__frame" href="photographer.html?id=${id}">
+function generatedCard (item) {
+  const { name, id, city, country, tags, tagline, price, portrait } = item
+  const createdCard = `<a class="main__frame" href="photographer.html?id=${id}">
             <div class="card">
               <div class="card__text">
               <image class="card__img" src="./FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${portrait}" alt="FishEye photographers - ${name}">
@@ -74,14 +71,14 @@ function generatedCard(item) {
               </div>
               
               `
-              
-  return createdCard;
+
+  return createdCard
 }
 
-function displayTags(tags) {
-  let stringTemplate = ``;
+function displayTags (tags) {
+  let stringTemplate = ''
   tags.forEach(tag => {
     stringTemplate += `<a><span class="tag" tabindex="0">#${tag}</span></a>`
-  });
+  })
   return stringTemplate
 }
