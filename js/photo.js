@@ -1,5 +1,5 @@
 import Media from './media.class.js'
-
+import { displayTags } from './functions.js'
 /**
  *
  * DOM elements
@@ -280,16 +280,6 @@ function getPhotographerFolder (photographer) {
   const formalizedSurname = surname.replace('-', ('_'))
   console.log('foldername', formalizedSurname)
   return formalizedSurname
-}
-
-// fonction pour que les # se mettent devant les tags
-function displayTags (tags) {
-  let stringTemplate = ''
-  tags.forEach(tag => {
-    console.log(tag)
-    stringTemplate += `<a><span class="tag" tabindex="0">#${tag}</span></a>`
-  })
-  return stringTemplate
 }
 
 function filterMedias (selectedValue) {

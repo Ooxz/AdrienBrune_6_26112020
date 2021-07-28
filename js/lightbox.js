@@ -16,7 +16,7 @@
 // 	  lightboxbg.style.display = "none";
 // 	}
 //   }
-  
+
 //   //click escape to close lightbox
 //   let boxid = "lightbox-background";
 //    window.onkeyup = function (event) {
@@ -26,7 +26,7 @@
 //    }
 
 //    /**
-//  * 
+//  *
 //  * launch lightbox
 //  */
 // function launchLightbox(elt) {
@@ -40,11 +40,11 @@
 // 	// const lightboxBtn = document.querySelectorAll(".photographs__pictures");
 // 	lightboxbg.style.display = "block";
 // 	lightboxCnt.style.display = "block";
-	
+
 // 	// lightboxBtn.style.display = "flex";
 // 	if(media.image){
 // 	  document.querySelector(".lightbox__container").innerHTML = `<img src="${baseUrl}/${media.image}" style="width:100%"><p>${media.title}</p>`;
-	  
+
 // 	}else{
 // 	  document.querySelector(".lightbox__container").innerHTML = `<video  controls src="${baseUrl}/${media.title}" style="width:100%" type="video/mp4"></video>`;
 // 	}
@@ -55,20 +55,20 @@
 // 	const lightboxBtn = document.querySelectorAll(".photographs__pictures");
 // 	lightboxBtn.forEach((image) => image.addEventListener("click", (e) => {launchLightbox(e.target)}));
 //   }
-  
+
 //   // Navigation prochaine et précédente (souris et clavier)
 //   document.querySelector(".lightbox__next").addEventListener('click', (e) => launchLightbox(e.target))
 //   document.querySelector(".lightbox__prev").addEventListener('click', (e) => launchLightbox(e.target))
-  
+
 //   document.addEventListener('keydown', (e) => {
 // 	const keyCode = e.key
 // 	if (keyCode === 'ArrowRight') {
 // 	  goToNextSlide()
 // 	} else if (keyCode === 'ArrowLeft') {
 // 	  goToPreviousSlide()
-// 	} 
+// 	}
 //   })
-  
+
 //   function goToNextSlide() {
 // 	const photographerFolder = getPhotographerFolder(photographer.name);
 // 	let baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
