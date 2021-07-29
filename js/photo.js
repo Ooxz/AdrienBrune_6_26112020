@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import Media from './media.class.js'
 import { displayTags } from './functions.js'
 /**
