@@ -344,11 +344,11 @@ function compareByTitle (a, b) {
 function pickUpMediasToDisplay (id) {
   let previous
   let next
-  const mediaIndex = mediasFromData.findIndex(media => media.id == id)
-  if (mediaIndex == 0) {
+  const mediaIndex = mediasFromData.findIndex(media => media.id === parseInt(id))
+  if (mediaIndex === 0) {
     previous = mediasFromData[mediasFromData.length - 1].id // le dernier item
     next = mediasFromData[1].id
-  } else if (mediaIndex == (mediasFromData.length - 1)) {
+  } else if (mediaIndex === (mediasFromData.length - 1)) {
     previous = mediasFromData[mediasFromData.length - 2].id
     next = mediasFromData[0].id
   } else {
