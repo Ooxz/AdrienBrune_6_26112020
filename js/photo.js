@@ -206,7 +206,7 @@ document.addEventListener('keydown', (e) => {
       selectedElt.closest('.dropdown__select').querySelector('.dropdown__trigger span').textContent = selectedElt.textContent
       document.querySelector('.dropdown__select').classList.toggle('open')
     } else if (selectedElt.dataset.id !== undefined && selectedElt.classList.contains('pic_like')) {
-      const pic = mediasFromData.find(media => media.id === selectedElt.dataset.id)
+      const pic = mediasFromData.find(media => media.id === parseInt(selectedElt.dataset.id))
       pic.likes++
       console.log(pic)
       refreshDom()
@@ -241,7 +241,7 @@ function likeEventListener () {
   likesEltsArray.forEach(likeBtn => {
     likeBtn.onclick = function (e) {
       const picId = likeBtn.getAttribute('data-id') // on récupère l'id de la photo
-      const pic = mediasFromData.find(media => media.id === picId) // on récup l'image
+      const pic = mediasFromData.find(media => media.id === parseInt(picId)) // on récup l'image
       pic.likes++
       refreshDom()
     }
@@ -268,7 +268,7 @@ function getDomainFromUrl () {
 }
 
 function getPhotographerFromData (data, id) {
-  return data.photographers.find(elt => elt.id == id)
+  return data.photographers.find(elt => elt.id === parseInt(id))
 }
 
 function getMediaFromData (data, photographerId) {
