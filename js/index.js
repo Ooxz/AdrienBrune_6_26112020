@@ -59,19 +59,21 @@ function scrollFunction () {
 function generatedCard (item) {
   const { name, id, city, country, tags, tagline, price, portrait } = item
   const createdCard = `<a class="main__frame" href="photographer.html?id=${id}">
-            <div class="card">
-              <div class="card__text">
-              <image class="card__img" src="./FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${portrait}" alt="FishEye photographers - ${name}">
-              <h2 class="card__name">${name}</h2>
-              <p class="card__city">${city}, ${country}</p>
-              <p class="card__quote">${tagline}</p>
-              <p class="card__price">${price}$/jour</p>
-              <p class="card__tag">${displayTags(tags)}</p>
-              </div>
-              </a>
-              </div>
-              
-              `
+  <div class="card">
+  <div class="card__text">
+  <image class="card__img" src="./FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${portrait}" alt="FishEye photographers - ${name}">
+  <h2 class="card__name">${name}</h2>
+  <p class="card__city">${city}, ${country}</p>
+  <p class="card__quote">${tagline}</p>
+  <p class="card__price">${price}$/jour</p>
+  <p class="card__tag">${displayTags(tags)}</p>
+  </div>
+  </div>
+  </a>`
 
   return createdCard
 }
+
+document.addEventListener('keyup', () => {
+  console.log(document.querySelector(':focus'))
+})
