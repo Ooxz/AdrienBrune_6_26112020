@@ -411,7 +411,7 @@
         "image": "Event_PintoWedding.jpg",
         "title": "Pinto Wedding",
         "tags": ["events"],
-        "likes": 52,
+        "likes": 50,
         "date": "2019-06-25",
         "price": 45
       },
@@ -421,7 +421,7 @@
         "image": "Event_BenevidesWedding.jpg",
         "title": "Benevides Wedding",
         "tags": ["events"],
-        "likes": 77,
+        "likes": 50,
         "date": "2019-06-28",
         "price": 45
       },

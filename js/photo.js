@@ -67,7 +67,7 @@ let selectedValue = ''
 * fetch
 */
 
-fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
+fetch('./../photographers.json')
   .then(response => response.json())
   .then(data => {
     const idPhotographer = getParamFromURL('id')
