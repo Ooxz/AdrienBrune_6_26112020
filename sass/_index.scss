@@ -95,12 +95,14 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    width: 260px;
+    margin: 2% 80px 2% 80px;
     
   }
     .card {
-    margin: 2% 42px 2% 42px;
+      width: 263px;
     padding: 0.3rem;
+    
       
   
       &__text{
@@ -110,8 +112,8 @@ header {
           align-items: center;
       }
       &__img{
-          width: 250px;
-          height: 250px;
+          width: 200px;
+          height: 200px;
           border-radius: 100%;
           object-fit: cover;
       }

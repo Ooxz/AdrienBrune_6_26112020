@@ -15,7 +15,9 @@ html{
   padding: 3rem 2.5rem;
   position: relative;
   background-color: #fafafa;
-  
+  &__header{
+    display: flex;
+  }
     &__contact{
       display: flex;
       flex-direction: column;
