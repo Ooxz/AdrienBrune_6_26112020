@@ -361,3 +361,55 @@ function pickUpMediasToDisplay (id) {
     next
   }
 }
+
+// function to indicate errors in the form linked with checkradio checkstring checklenght
+function validate () {
+  let isValid = true
+  isValidSurname = checkString(document.getElementById('first'), 'Prénom', (document.getElementById('missFirst')))
+  isValidName = checkString(document.getElementById('last'), 'Nom', (document.getElementById('missLast')))
+  isValidEmail = checkString(document.getElementById('email'), 'e-mail', (document.getElementById('missEmail')))
+  isValidFirstLength = checkLength(document.getElementById('first'), (document.getElementById('missFirstNbr')))
+  isValidLastLength = checkLength(document.getElementById('last'), (document.getElementById('missLastNbr')))
+  isValidForm = checkForm(document.getElementById('formId'))
+  isValid = isValidSurname && isValidName && isValidEmail && isValidFirstLength && isValidForm && isValidLastLength && isValidForm
+  return isValid
+}
+
+// make sure email is valid
+function validateEmail (sEmail) {
+  const reEmail = /^(?:[\w!#$%&'*+\-/=?^`{|}~]+\.)*[\w!#$%&'*+\-/=?^`{|}~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/
+
+  if (!sEmail.match(reEmail) && document.reserve.email.value !== '') {
+    badEmail.textContent = 'E-mail non conforme'
+    badEmail.style.color = 'red'
+    document.reserve.email.focus()
+    return false
+  }
+
+  return true
+}
+
+function checkString (entryElt, entryName, errorElt) {
+  let isValid = true
+  // checkEmpty
+  console.log(entryElt)
+  if (entryElt.value === '') {
+    errorElt.textContent = `${entryName} manquant!`
+    errorElt.style.color = 'red'
+    entryElt.focus()
+    isValid = false
+  }
+  return isValid
+}
+
+function checkLength (entryElt, errorElt) {
+  let isValid = true
+  // check Less Than 2
+  if (entryElt.value.length <= 2 && entryElt.value !== '') {
+    errorElt.textContent = 'Il faut plus de 2 caractères!'
+    errorElt.style.color = 'red'
+    entryElt.focus()
+    isValid = false
+  }
+  return isValid
+}
