@@ -30,7 +30,14 @@ document.getElementById('closeLightbox').addEventListener('click', (event) => {
   event.preventDefault()
   lightboxbg.style.display = 'none'
 })
-
+document.getElementById('formId').addEventListener('submit', (event) => {
+  event.preventDefault()
+  validate()
+})
+document.getElementById('email').addEventListener('blur', (event) => {
+  event.preventDefault()
+  validateEmail(event.target.value)
+})
 // clicking outside of the modalbg will close it
 window.onclick = function (event) {
   if (event.target === modalbg) {
@@ -365,12 +372,11 @@ function pickUpMediasToDisplay (id) {
 // function to indicate errors in the form linked with checkradio checkstring checklenght
 function validate () {
   let isValid = true
-  isValidSurname = checkString(document.getElementById('first'), 'Prénom', (document.getElementById('missFirst')))
-  isValidName = checkString(document.getElementById('last'), 'Nom', (document.getElementById('missLast')))
-  isValidEmail = checkString(document.getElementById('email'), 'e-mail', (document.getElementById('missEmail')))
-  isValidFirstLength = checkLength(document.getElementById('first'), (document.getElementById('missFirstNbr')))
-  isValidLastLength = checkLength(document.getElementById('last'), (document.getElementById('missLastNbr')))
-  isValidForm = checkForm(document.getElementById('formId'))
+  const isValidSurname = checkString(document.getElementById('first'), 'Prénom', (document.getElementById('missFirst')))
+  const isValidName = checkString(document.getElementById('last'), 'Nom', (document.getElementById('missLast')))
+  const isValidEmail = checkString(document.getElementById('email'), 'e-mail', (document.getElementById('missEmail')))
+  const isValidFirstLength = checkLength(document.getElementById('first'), (document.getElementById('missFirstNbr')))
+  const isValidLastLength = checkLength(document.getElementById('last'), (document.getElementById('missLastNbr')))
   isValid = isValidSurname && isValidName && isValidEmail && isValidFirstLength && isValidForm && isValidLastLength && isValidForm
   return isValid
 }
@@ -382,7 +388,7 @@ function validateEmail (sEmail) {
   if (!sEmail.match(reEmail) && document.reserve.email.value !== '') {
     badEmail.textContent = 'E-mail non conforme'
     badEmail.style.color = 'red'
-    document.reserve.email.focus()
+    // document.reserve.email.focus()
     return false
   }
 
@@ -396,7 +402,7 @@ function checkString (entryElt, entryName, errorElt) {
   if (entryElt.value === '') {
     errorElt.textContent = `${entryName} manquant!`
     errorElt.style.color = 'red'
-    entryElt.focus()
+    // entryElt.focus()
     isValid = false
   }
   return isValid
@@ -408,7 +414,7 @@ function checkLength (entryElt, errorElt) {
   if (entryElt.value.length <= 2 && entryElt.value !== '') {
     errorElt.textContent = 'Il faut plus de 2 caractères!'
     errorElt.style.color = 'red'
-    entryElt.focus()
+    // entryElt.focus()
     isValid = false
   }
   return isValid
