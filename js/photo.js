@@ -378,6 +378,11 @@ function validate () {
   const isValidFirstLength = checkLength(document.getElementById('first'), (document.getElementById('missFirstNbr')))
   const isValidLastLength = checkLength(document.getElementById('last'), (document.getElementById('missLastNbr')))
   isValid = isValidSurname && isValidName && isValidEmail && isValidFirstLength && isValidForm && isValidLastLength && isValidForm
+  if (isValid) {
+    const contact = {}
+    contact.first = document.getElementById('first').value
+    console.log(contact)
+  }
   return isValid
 }
 
