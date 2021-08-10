@@ -426,3 +426,13 @@ function checkLength (entryElt, errorElt) {
   }
   return isValid
 }
+
+// modalbg disapear on submit and modal appear
+const form = document.getElementsByTagName('form')[0]
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
+  if (validate()) {
+    modalbg.style.display = 'none'
+    form.reset()
+  }
+})
