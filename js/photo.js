@@ -377,10 +377,12 @@ function validate () {
   const isValidEmail = checkString(document.getElementById('email'), 'e-mail', (document.getElementById('missEmail')))
   const isValidFirstLength = checkLength(document.getElementById('first'), (document.getElementById('missFirstNbr')))
   const isValidLastLength = checkLength(document.getElementById('last'), (document.getElementById('missLastNbr')))
-  isValid = isValidSurname && isValidName && isValidEmail && isValidFirstLength && isValidForm && isValidLastLength && isValidForm
+  isValid = isValidSurname && isValidName && isValidEmail && isValidFirstLength && isValidLastLength
   if (isValid) {
     const contact = {}
     contact.first = document.getElementById('first').value
+    contact.last = document.getElementById('last').value
+    contact.email = document.getElementById('email').value
     console.log(contact)
   }
   return isValid
