@@ -14,7 +14,7 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
     const users = json
     users.photographers.forEach(photographer => {
       const card = generatedCard(photographer)
-      document.getElementById('photographs').innerHTML += card
+      document.getElementById('photographs').innerHTML += card // récupérer la fonction generatedCard et display les cards
     })
     addTagsListener('.bloc_page', users)
   })
@@ -22,14 +22,15 @@ fetch('https://ooxz.github.io/AdrienBrune_6_26112020/photographers.json')
     this.dataError = true
   })
 
+// on créé un tableau de tag
 function addTagsListener (container, users) {
-  const tagElements = Array.from(document.querySelector(container).getElementsByClassName('tag')) // on créé un tableau de tag
+  const tagElements = Array.from(document.querySelector(container).getElementsByClassName('tag'))
 
   // pour chaque element du tableau de tags
   tagElements.forEach(elt => {
     elt.addEventListener('click', (e) => {
       e.preventDefault()
-      const tag = e.target.textContent.substring(1).toLowerCase() // on défini tag en enmevant # (substring) et en mettant tout en minuscule
+      const tag = e.target.textContent.substring(1).toLowerCase() // on défini tag en enlevant # (substring) et en mettant tout en minuscule
       const filtredArray = users.photographers.filter(elt => elt.tags.includes(tag)) // on créé notre filtre
       console.log('tags', tag)
       document.getElementById('photographs').innerHTML = '' // on vide les photos
@@ -46,15 +47,22 @@ function addTagsListener (container, users) {
 
 // Affichage des photographes par tag // _________________________________________________________________
 
-// scroll 10 px down and the div shows
-
+// scroll 30 px down and the div shows
 function scrollFunction () {
-  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-    document.getElementById('scroll__div').style.display = 'flex'
+  const scrollDown = document.querySelector('.contenu__link')
+  if (window.scrollY > 190) {
+    scrollDown.style.display = 'flex'
   } else {
-    document.getElementById('scroll__div').style.display = 'none'
+    scrollDown.style.display = 'none'
   }
 }
+// function scrollFunction () {
+//   if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+//     document.getElementById('scroll__div').style.display = 'flex'
+//   } else {
+//     document.getElementById('scroll__div').style.display = 'none'
+//   }
+// }
 
 function generatedCard (item) {
   const { name, id, city, country, tags, tagline, price, portrait } = item

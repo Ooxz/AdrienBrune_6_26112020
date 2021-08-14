@@ -7,7 +7,7 @@ import { displayTags } from './functions.js'
  */
 const modalbg = document.querySelector('.bground')
 const modalBtn = document.querySelectorAll('.modal-btn')
-let mediasFromData = []
+let mediasFromData = [] // tableau de média comprends id, phtographerId, image, title, tags.
 let photographer = null
 const lightboxbg = document.querySelector('.lightbox-background')
 const lightboxCnt = document.querySelector('.lightbox-content')
@@ -30,10 +30,13 @@ document.getElementById('closeLightbox').addEventListener('click', (event) => {
   event.preventDefault()
   lightboxbg.style.display = 'none'
 })
+
+// addeventlistener por la fonction validate
 document.getElementById('formId').addEventListener('submit', (event) => {
   event.preventDefault()
   validate()
 })
+// addeventlistener por la fonction validateemail
 document.getElementById('email').addEventListener('blur', (event) => {
   event.preventDefault()
   validateEmail(event.target.value)
@@ -67,6 +70,7 @@ window.onkeyup = function (event) {
   }
 }
 
+// pour récupérer data-value
 let selectedValue = ''
 
 /**
@@ -122,7 +126,7 @@ window.addEventListener('click', function (e) {
 /*
  * FUNCTIONS
  */
-
+// Permet de recharger la page a chaque action(pour réorganiser les photos après les likes notamment)
 function refreshDom () {
   const orderedMedias = filterMedias(selectedValue)
   displayContent(photographer, orderedMedias)
@@ -141,9 +145,9 @@ function displayContent (photographer, medias) {
   document.getElementById('photographer__tags').innerHTML = `${displayTags(photographer.tags)}`
   const test = document.createElement('IMG')
   test.setAttribute('src', `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/Photographers_ID_Photos/${photographer.portrait}`)
-  document.getElementById('photographer__photo').innerHTML = ''
+  document.getElementById('photographer__photo').innerHTML = '' // on vide avant et après pour ne pas avoir photos en doucle
   document.getElementById('photographer__photo').appendChild(test)
-  document.getElementById('photographers__photos').innerHTML = ''
+  document.getElementById('photographers__photos').innerHTML = '' // on vide avant et après pour ne pas avoir photos en doucle
   medias.forEach(item => {
     const baseUrl = `${getDomainFromUrl()}/FishEye_Photos/Sample_Photos/${photographerFolder}/`
     const media = new Media(item, baseUrl)
@@ -171,17 +175,13 @@ function launchLightbox (id) {
   const media = mediasToDisplay.media
   document.querySelector('.lightbox__prev').dataset.id = mediasToDisplay.previous
   document.querySelector('.lightbox__next').dataset.id = mediasToDisplay.next
-  // const lightboxBtn = document.querySelectorAll(".photographs__pictures");
   lightboxbg.style.display = 'block'
   lightboxCnt.style.display = 'block'
-
-  // lightboxBtn.style.display = "flex";
   if (media.image) {
     document.querySelector('.lightbox__container').innerHTML = `<img src="${baseUrl}/${media.image}" style="width:100%"><p class="lightbox__title">${media.title}</p>`
   } else {
     document.querySelector('.lightbox__container').innerHTML = `<video  controls src="${baseUrl}/${media.video}" style="width:100%" type="video/mp4"></video><p class="lightbox__title">${media.title}</p>`
   }
-  // photographerTitle.innerHTML = `${photographer.title}`;
 }
 // image apparait au click
 function imageLightboxListener () {

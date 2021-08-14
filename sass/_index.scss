@@ -8,6 +8,7 @@ header {
   align-items: center;
   position: relative;
   &__link {
+    display: none;
     color: black;
     position: fixed;
     top: .5rem;
