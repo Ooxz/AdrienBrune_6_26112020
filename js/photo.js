@@ -395,7 +395,6 @@ function validateEmail (sEmail) {
   if (!sEmail.match(reEmail) && document.reserve.email.value !== '') {
     badEmail.textContent = 'E-mail non conforme'
     badEmail.style.color = 'red'
-    // document.reserve.email.focus()
     return false
   }
 
@@ -409,7 +408,6 @@ function checkString (entryElt, entryName, errorElt) {
   if (entryElt.value === '') {
     errorElt.textContent = `${entryName} manquant!`
     errorElt.style.color = 'red'
-    // entryElt.focus()
     isValid = false
   }
   return isValid
@@ -421,7 +419,6 @@ function checkLength (entryElt, errorElt) {
   if (entryElt.value.length <= 2 && entryElt.value !== '') {
     errorElt.textContent = 'Il faut plus de 2 caractères!'
     errorElt.style.color = 'red'
-    // entryElt.focus()
     isValid = false
   }
   return isValid
