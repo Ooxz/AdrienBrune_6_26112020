@@ -1,2 +1,10 @@
-# AdrienBrune_6_26112020
- Projet 6 openclassrooms
+# OPENCLASSROOMS PROJET 6
+## FisheEye
+
+ Implémenter un site de photographes 
+
+ ### Languages utilisés : 
+
+ -Html
+ -Scss
+ -VanillaJS
