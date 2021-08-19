@@ -5,12 +5,17 @@ import { displayTags } from './functions.js'
  *
  * DOM elements
  */
+const body = document.querySelector('.body')
+const main = document.getElementById('main')
 const modalbg = document.querySelector('.bground')
+const modalcontent = document.querySelector('.content')
 const modalBtn = document.querySelectorAll('.modal-btn')
+const firstName = document.getElementById('first')
 let mediasFromData = [] // tableau de média comprends id, phtographerId, image, title, tags.
 let photographer = null
 const lightboxbg = document.querySelector('.lightbox-background')
 const lightboxCnt = document.querySelector('.lightbox-content')
+const lightbox = document.getElementById('lightbox')
 let mediasToDisplay
 
 /**
@@ -161,6 +166,11 @@ function displayContent (photographer, medias) {
  */
 function launchModal () {
   modalbg.style.display = 'block'
+  modalbg.setAttribute('aria-hidden', 'false')
+  main.setAttribute('aria-hidden', 'true')
+  body.classList.add('no-scroll')
+  firstName.focus()
+  modalcontent.setAttribute('tabindex', 0)
 }
 
 /**
@@ -177,6 +187,11 @@ function launchLightbox (id) {
   document.querySelector('.lightbox__next').dataset.id = mediasToDisplay.next
   lightboxbg.style.display = 'block'
   lightboxCnt.style.display = 'block'
+  lightboxbg.setAttribute('aria-hidden', 'false')
+  main.setAttribute('aria-hidden', 'true')
+  body.classList.add('no-scroll')
+  lightboxCnt.focus()
+  lightbox.setAttribute('tabindex', 0)
   if (media.image) {
     document.querySelector('.lightbox__container').innerHTML = `<img src="${baseUrl}/${media.image}" style="width:100%"><p class="lightbox__title">${media.title}</p>`
   } else {

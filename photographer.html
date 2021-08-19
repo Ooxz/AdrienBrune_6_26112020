@@ -10,13 +10,13 @@
   <link rel="stylesheet" href="./sass/import.css">
 </head>
 
-<body>
+<body class="body">
   <div class="container__photo">
     <header class="header__main">
       <a href="index.html"><div id="nav__label"><img class="header__logo" src="./FishEye_Photos/Sample_Photos/Logo/fisheye_logo.png"
           alt="logo fisheye" /></div></a>
     </header>
-    <main class="main">
+    <main class="main" id="main">
       <header class="sect">
           <div class="sect__contact">
             <div class="sect__header">
@@ -66,39 +66,6 @@
           </article>
         </div>
       </section>
-      <div class="bground" tabindex="0">
-        <div class="content">
-          <p id="modal__name" class="mod-title" tabindex="0">Contactez-moi<br>Nom du photographe</p>
-          <span class='close' id="closeButton"></span>
-          <div class="modal-body">
-            <form name="reserve" action="index.html" method="get" id="formId">
-              <div class="formData">
-                <label class="size" for="first">Prénom</label><br>
-                <input class="text-control" type="text" id="first" name="first"/><br>
-                <span id="missFirst"></span>
-                <span id="missFirstNbr"></span>
-              </div>
-              <div class="formData">
-                <label class="size" for="last">Nom</label><br>
-                <input class="text-control" type="text" id="last" name="last"/><br>
-                <span id="missLast"></span>
-                <span id="missLastNbr"></span>
-              </div>
-              <div class="formData">
-                <label class="size" for="email">E-mail</label><br>
-                <input class="text-control" type="email" id="email" name="email"/><br>
-                <span id="missEmail"></span>
-                <span id="badEmail"></span>
-              </div>
-              <div class="formData">
-                <label class="size" for="subject">Votre message</label><br>
-                <textarea id="subject" name="your-message"></textarea>
-              </div>
-              <input class="btn-submit" type="submit" id="submitId" value="Envoyer" />
-            </form>
-          </div>
-        </div>
-      </div>
       <footer class="infos">
         <div class="infos__likes">
           <p class="infos__likes__number" aria-label="like du photographe"></p>
@@ -107,6 +74,41 @@
         
       </footer>
     </main>
+
+
+    <div class="bground" tabindex="0" aria-hidden="true">
+      <div class="content" aria-modal="true" role="dialog">
+        <p id="modal__name" class="mod-title" tabindex="0">Contactez-moi<br>Nom du photographe</p>
+        <span class='close' id="closeButton"></span>
+        <div class="modal-body">
+          <form name="reserve" action="index.html" method="get" id="formId">
+            <div class="formData">
+              <label class="size" for="first">Prénom</label><br>
+              <input class="text-control" type="text" id="first" name="first"/><br>
+              <span id="missFirst"></span>
+              <span id="missFirstNbr"></span>
+            </div>
+            <div class="formData">
+              <label class="size" for="last">Nom</label><br>
+              <input class="text-control" type="text" id="last" name="last"/><br>
+              <span id="missLast"></span>
+              <span id="missLastNbr"></span>
+            </div>
+            <div class="formData">
+              <label class="size" for="email">E-mail</label><br>
+              <input class="text-control" type="email" id="email" name="email"/><br>
+              <span id="missEmail"></span>
+              <span id="badEmail"></span>
+            </div>
+            <div class="formData">
+              <label class="size" for="subject">Votre message</label><br>
+              <textarea id="subject" name="your-message"></textarea>
+            </div>
+            <input class="btn-submit" type="submit" id="submitId" value="Envoyer" />
+          </form>
+        </div>
+      </div>
+    </div>
 
      <!-- lightbox -->
      <div class="lightbox-background" id="lightbox-background">

@@ -1030,6 +1030,11 @@ html {
           box-sizing: border-box;
 }
 
+.lightbox-content:focus {
+  outline: none;
+  border: none;
+}
+
 .lightbox-content button {
   border: none;
   cursor: pointer;
@@ -1051,6 +1056,10 @@ html {
   padding: 1rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.lightbox:focus {
+  outline: none;
 }
 
 .lightbox__close {

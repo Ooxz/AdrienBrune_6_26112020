@@ -532,6 +532,10 @@ html{
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    &:focus {
+      outline: none;
+      border: none;
+    }
 
     & button {
       border: none;
@@ -547,6 +551,9 @@ html{
     height: 100vh;
     padding: 1rem;
     box-sizing: border-box;
+    &:focus {
+      outline: none;
+    }
     &__close {
       width: 2rem;
       height: 2rem;

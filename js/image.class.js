@@ -13,7 +13,7 @@ export default class PhotographerImage {
   displayInList () {
     const createdCard = `<a class="main__card">
             <div class="card__all">
-              <image class="photographs__pictures" tabindex="0" data-id="${this.id}" src="${this.imageUrl}" alt="FishEye photographes">
+              <image class="photographs__pictures" tabindex="0" data-id="${this.id}" src="${this.imageUrl}" alt="${this.title}">
               <div class="photo__info">
               <p class="photo__title">${this.title}</p>
               <p class="photo__price">${this.price}€</p>
