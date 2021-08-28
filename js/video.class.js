@@ -10,6 +10,7 @@ export default class PhotographerVideo {
     this.price = item.price
   }
 
+  // template string
   displayInList () {
     const createdCard = `<a class="main__card">
             <div class="card__all">
